@@ -13,14 +13,28 @@ from pathlib import Path
 project_root = Path(__file__).parent
 sys.path.insert(0, str(project_root))
 
+# Graceful GUI dependency handling
+GUI_AVAILABLE = True
+GUI_FALLBACK_MESSAGE = ""
+
 try:
     import tkinter as tk
     from gui.main_window import MainWindow
 except ImportError as e:
-    print(f"Error importing GUI modules: {e}")
-    print("Please ensure all required dependencies are installed:")
-    print("pip install -r requirements.txt")
-    sys.exit(1)
+    GUI_AVAILABLE = False
+    GUI_FALLBACK_MESSAGE = str(e)
+    print(f"Warning: GUI modules not available: {e}")
+    print("Falling back to CLI mode...")
+
+    # Check if we can provide CLI fallback
+    try:
+        from main import main as cli_main
+        CLI_FALLBACK_AVAILABLE = True
+    except ImportError:
+        CLI_FALLBACK_AVAILABLE = False
+        print("Error: CLI fallback also not available")
+        print("Please install required dependencies:")
+        print("pip install -r requirements.txt")
 
 
 def check_python_version():
