@@ -46,29 +46,73 @@ def check_python_version():
 
 
 def check_dependencies():
-    """Check if required dependencies are available."""
-    required_modules = [
-        'tkinter',
-        'matplotlib',
-        'numpy',
-        'scipy',
-        'yaml'
-    ]
+    """Check if required dependencies are available with graceful fallback."""
+    # Core dependencies required for any mode
+    core_modules = ['yaml', 'numpy']
 
-    missing_modules = []
-    for module in required_modules:
+    # GUI-specific dependencies
+    gui_modules = ['tkinter', 'matplotlib']
+
+    # Optional dependencies for enhanced functionality
+    optional_modules = ['scipy']
+
+    missing_core = []
+    missing_gui = []
+    missing_optional = []
+
+    # Check core dependencies
+    for module in core_modules:
         try:
             __import__(module)
         except ImportError:
-            missing_modules.append(module)
+            missing_core.append(module)
 
-    if missing_modules:
-        print("Error: Missing required dependencies:")
-        for module in missing_modules:
+    # Check GUI dependencies
+    for module in gui_modules:
+        try:
+            __import__(module)
+        except ImportError:
+            missing_gui.append(module)
+
+    # Check optional dependencies
+    for module in optional_modules:
+        try:
+            __import__(module)
+        except ImportError:
+            missing_optional.append(module)
+
+    # Handle missing core dependencies (critical)
+    if missing_core:
+        print("Error: Missing critical dependencies:")
+        for module in missing_core:
             print(f"  - {module}")
         print("\nPlease install missing dependencies:")
         print("pip install -r requirements.txt")
-        sys.exit(1)
+        return False
+
+    # Handle missing GUI dependencies
+    if missing_gui:
+        global GUI_AVAILABLE, GUI_FALLBACK_MESSAGE
+        GUI_AVAILABLE = False
+        GUI_FALLBACK_MESSAGE = f"Missing GUI modules: {', '.join(missing_gui)}"
+        print(f"Warning: {GUI_FALLBACK_MESSAGE}")
+        print("Falling back to CLI mode...")
+
+        # Check if CLI fallback is available
+        try:
+            from main import main as cli_main
+            CLI_FALLBACK_AVAILABLE = True
+        except ImportError:
+            CLI_FALLBACK_AVAILABLE = False
+            print("Error: CLI fallback also not available")
+            return False
+
+    # Handle missing optional dependencies
+    if missing_optional:
+        print(f"Warning: Missing optional modules: {', '.join(missing_optional)}")
+        print("Some advanced features may not be available")
+
+    return True
 
 
 def setup_directories():
