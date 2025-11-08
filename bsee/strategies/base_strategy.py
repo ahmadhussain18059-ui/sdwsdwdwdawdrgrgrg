@@ -20,6 +20,12 @@ class BaseStrategy(ABC):
         self.no_improvement_count = 0
         self.converged = False
 
+        # Error handling
+        self.error_handler = get_global_error_handler()
+        self.error_count = 0
+        self.recovery_count = 0
+        self.last_error = None
+
     @abstractmethod
     def propose(self, current_state: State) -> Tuple[str, Dict[str, Any]]:
         """Propose next operation to apply.
