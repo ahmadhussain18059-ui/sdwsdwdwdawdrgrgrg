@@ -3,8 +3,9 @@ Base strategy interface for BSEE search strategies.
 """
 
 from abc import ABC, abstractmethod
-from typing import Dict, Any, Tuple
+from typing import Dict, Any, Tuple, Optional
 from bsee.engine.state import State
+from bsee.utils.error_handler import safe_execute, get_global_error_handler, ErrorSeverity
 
 
 class BaseStrategy(ABC):
