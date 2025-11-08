@@ -1,0 +1,12 @@
+adaptation_rate: 0.1
+description: Multi-criteria heuristic evaluation for intelligent operation selection
+diversity_threshold: 0.1
+heuristic_weights:
+  cost: 0.2
+  diversity: 0.2
+  history: 0.1
+  improvement: 0.3
+  pattern: 0.2
+heuristic_window: 10
+name: Heuristic Strategy
+pattern_sensitivity: 0.5

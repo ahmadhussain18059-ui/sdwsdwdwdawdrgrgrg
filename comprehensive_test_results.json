@@ -1,0 +1,444 @@
+{
+  "timestamp": 1762627517.6903825,
+  "python_version": "3.12.12 (main, Nov  4 2025, 04:29:50) [GCC 14.2.0]",
+  "test_results": {
+    "phase1": {
+      "phase": "Phase 1",
+      "strategies": {
+        "MCTS": {
+          "success": true,
+          "proposal_time": 5.4836273193359375e-06,
+          "proposed_operation": "xor_constant",
+          "operation_params": {
+            "constant": 64
+          },
+          "accept_result": true,
+          "error_handling": true,
+          "strategy_info": {
+            "name": "MCTSStrategy",
+            "iteration_count": 0,
+            "best_score": -Infinity,
+            "no_improvement_count": 0,
+            "converged": false,
+            "error_count": 0,
+            "recovery_count": 0,
+            "last_error": null
+          }
+        },
+        "Genetic": {
+          "success": true,
+          "proposal_time": 4.76837158203125e-06,
+          "proposed_operation": "xor_constant",
+          "operation_params": {
+            "constant": 225
+          },
+          "accept_result": true,
+          "error_handling": true,
+          "strategy_info": {
+            "name": "GeneticStrategy",
+            "iteration_count": 0,
+            "best_score": -Infinity,
+            "no_improvement_count": 0,
+            "converged": false,
+            "error_count": 0,
+            "recovery_count": 0,
+            "last_error": null
+          }
+        },
+        "Beam": {
+          "success": true,
+          "proposal_time": 3.5762786865234375e-06,
+          "proposed_operation": "xor_constant",
+          "operation_params": {
+            "constant": 156
+          },
+          "accept_result": true,
+          "error_handling": true,
+          "strategy_info": {
+            "name": "BeamStrategy",
+            "iteration_count": 0,
+            "best_score": -Infinity,
+            "no_improvement_count": 0,
+            "converged": false,
+            "error_count": 0,
+            "recovery_count": 0,
+            "last_error": null
+          }
+        },
+        "Annealing": {
+          "success": true,
+          "proposal_time": 2.6226043701171875e-06,
+          "proposed_operation": "xor_constant",
+          "operation_params": {
+            "constant": 36
+          },
+          "accept_result": true,
+          "error_handling": true,
+          "strategy_info": {
+            "name": "AnnealingStrategy",
+            "iteration_count": 0,
+            "best_score": -Infinity,
+            "no_improvement_count": 0,
+            "converged": false,
+            "error_count": 0,
+            "recovery_count": 0,
+            "last_error": null
+          }
+        },
+        "Heuristic": {
+          "success": true,
+          "proposal_time": 2.86102294921875e-06,
+          "proposed_operation": "xor_constant",
+          "operation_params": {
+            "constant": 165
+          },
+          "accept_result": true,
+          "error_handling": true,
+          "strategy_info": {
+            "name": "HeuristicStrategy",
+            "iteration_count": 0,
+            "best_score": -Infinity,
+            "no_improvement_count": 0,
+            "converged": false,
+            "error_count": 0,
+            "recovery_count": 0,
+            "last_error": null
+          }
+        }
+      }
+    },
+    "phase2": {
+      "phase": "Phase 2",
+      "operations": {
+        "dct_transform": {
+          "success": false,
+          "execution_time": 0.001367330551147461,
+          "reversible": false,
+          "parameter_validation": true,
+          "edge_case_handling": false,
+          "errors": [
+            "Operation function should accept at least 2 parameters",
+            "Unexpected error with invalid input NoneType: No module named 'numpy'",
+            "Unexpected error with invalid input str: No module named 'numpy'",
+            "Unexpected error with invalid input int: No module named 'numpy'",
+            "Unexpected error with invalid input list: No module named 'numpy'",
+            "Unexpected error with invalid input dict: No module named 'numpy'",
+            "Basic functionality test failed: TransformOperations.dct_transform() got an unexpected keyword argument 'constant'",
+            "Reversibility test failed: TransformOperations.dct_transform() got an unexpected keyword argument 'constant'",
+            "All edge cases failed"
+          ],
+          "warnings": [
+            "Edge case failed: TransformOperations.dct_transform() got an unexpected keyword argument 'constant'...",
+            "Edge case failed: TransformOperations.dct_transform() got an unexpected keyword argument 'constant'...",
+            "Edge case failed: TransformOperations.dct_transform() got an unexpected keyword argument 'constant'...",
+            "Edge case failed: TransformOperations.dct_transform() got an unexpected keyword argument 'constant'...",
+            "Edge case failed: TransformOperations.dct_transform() got an unexpected keyword argument 'constant'...",
+            "Edge case failed: TransformOperations.dct_transform() got an unexpected keyword argument 'constant'..."
+          ]
+        },
+        "dwt_transform": {
+          "success": false,
+          "execution_time": 0.0011506080627441406,
+          "reversible": false,
+          "parameter_validation": true,
+          "edge_case_handling": false,
+          "errors": [
+            "Operation function should accept at least 2 parameters",
+            "Unexpected error with invalid input NoneType: No module named 'numpy'",
+            "Unexpected error with invalid input str: No module named 'numpy'",
+            "Unexpected error with invalid input int: No module named 'numpy'",
+            "Unexpected error with invalid input list: No module named 'numpy'",
+            "Unexpected error with invalid input dict: No module named 'numpy'",
+            "Basic functionality test failed: TransformOperations.dwt_transform() got an unexpected keyword argument 'constant'",
+            "Reversibility test failed: TransformOperations.dwt_transform() got an unexpected keyword argument 'constant'",
+            "All edge cases failed"
+          ],
+          "warnings": [
+            "Edge case failed: TransformOperations.dwt_transform() got an unexpected keyword argument 'constant'...",
+            "Edge case failed: TransformOperations.dwt_transform() got an unexpected keyword argument 'constant'...",
+            "Edge case failed: TransformOperations.dwt_transform() got an unexpected keyword argument 'constant'...",
+            "Edge case failed: TransformOperations.dwt_transform() got an unexpected keyword argument 'constant'...",
+            "Edge case failed: TransformOperations.dwt_transform() got an unexpected keyword argument 'constant'...",
+            "Edge case failed: TransformOperations.dwt_transform() got an unexpected keyword argument 'constant'..."
+          ]
+        },
+        "fft_transform": {
+          "success": false,
+          "execution_time": 0.0006573200225830078,
+          "reversible": false,
+          "parameter_validation": true,
+          "edge_case_handling": false,
+          "errors": [
+            "Operation function should accept at least 2 parameters",
+            "Basic functionality test failed: TransformOperations.fft_transform() got an unexpected keyword argument 'constant'",
+            "Reversibility test failed: TransformOperations.fft_transform() got an unexpected keyword argument 'constant'",
+            "All edge cases failed"
+          ],
+          "warnings": [
+            "Operation accepted invalid input type: NoneType",
+            "Operation accepted invalid input type: list",
+            "Operation accepted invalid input type: dict",
+            "Edge case failed: TransformOperations.fft_transform() got an unexpected keyword argument 'constant'...",
+            "Edge case failed: TransformOperations.fft_transform() got an unexpected keyword argument 'constant'...",
+            "Edge case failed: TransformOperations.fft_transform() got an unexpected keyword argument 'constant'...",
+            "Edge case failed: TransformOperations.fft_transform() got an unexpected keyword argument 'constant'...",
+            "Edge case failed: TransformOperations.fft_transform() got an unexpected keyword argument 'constant'...",
+            "Edge case failed: TransformOperations.fft_transform() got an unexpected keyword argument 'constant'..."
+          ]
+        },
+        "huffman_encode": {
+          "success": false,
+          "execution_time": 0.002883434295654297,
+          "reversible": false,
+          "parameter_validation": true,
+          "edge_case_handling": false,
+          "errors": [
+            "Operation function should accept at least 2 parameters",
+            "Basic functionality test failed: TransformOperations.huffman_encode() got an unexpected keyword argument 'level'",
+            "Reversibility test failed: TransformOperations.huffman_encode() got an unexpected keyword argument 'level'",
+            "All edge cases failed"
+          ],
+          "warnings": [
+            "Operation accepted invalid input type: NoneType",
+            "Operation accepted invalid input type: list",
+            "Operation accepted invalid input type: dict",
+            "Edge case failed: TransformOperations.huffman_encode() got an unexpected keyword argument 'level'...",
+            "Edge case failed: TransformOperations.huffman_encode() got an unexpected keyword argument 'level'...",
+            "Edge case failed: TransformOperations.huffman_encode() got an unexpected keyword argument 'level'...",
+            "Edge case failed: TransformOperations.huffman_encode() got an unexpected keyword argument 'level'...",
+            "Edge case failed: TransformOperations.huffman_encode() got an unexpected keyword argument 'level'...",
+            "Edge case failed: TransformOperations.huffman_encode() got an unexpected keyword argument 'level'..."
+          ]
+        },
+        "lz77_encode": {
+          "success": false,
+          "execution_time": 0.00010657310485839844,
+          "reversible": false,
+          "parameter_validation": true,
+          "edge_case_handling": false,
+          "errors": [
+            "Operation function should accept at least 2 parameters",
+            "Basic functionality test failed: TransformOperations.lz77_encode() got an unexpected keyword argument 'level'",
+            "Reversibility test failed: TransformOperations.lz77_encode() got an unexpected keyword argument 'level'",
+            "All edge cases failed"
+          ],
+          "warnings": [
+            "Operation accepted invalid input type: NoneType",
+            "Operation accepted invalid input type: list",
+            "Operation accepted invalid input type: dict",
+            "Edge case failed: TransformOperations.lz77_encode() got an unexpected keyword argument 'level'...",
+            "Edge case failed: TransformOperations.lz77_encode() got an unexpected keyword argument 'level'...",
+            "Edge case failed: TransformOperations.lz77_encode() got an unexpected keyword argument 'level'...",
+            "Edge case failed: TransformOperations.lz77_encode() got an unexpected keyword argument 'level'...",
+            "Edge case failed: TransformOperations.lz77_encode() got an unexpected keyword argument 'level'...",
+            "Edge case failed: TransformOperations.lz77_encode() got an unexpected keyword argument 'level'..."
+          ]
+        },
+        "arithmetic_encode": {
+          "success": false,
+          "execution_time": 0.00010251998901367188,
+          "reversible": false,
+          "parameter_validation": true,
+          "edge_case_handling": false,
+          "errors": [
+            "Operation function should accept at least 2 parameters",
+            "Basic functionality test failed: TransformOperations.arithmetic_encode() got an unexpected keyword argument 'level'",
+            "Reversibility test failed: TransformOperations.arithmetic_encode() got an unexpected keyword argument 'level'",
+            "All edge cases failed"
+          ],
+          "warnings": [
+            "Operation accepted invalid input type: NoneType",
+            "Operation accepted invalid input type: list",
+            "Operation accepted invalid input type: dict",
+            "Edge case failed: TransformOperations.arithmetic_encode() got an unexpected keyword argument 'level'...",
+            "Edge case failed: TransformOperations.arithmetic_encode() got an unexpected keyword argument 'level'...",
+            "Edge case failed: TransformOperations.arithmetic_encode() got an unexpected keyword argument 'level'...",
+            "Edge case failed: TransformOperations.arithmetic_encode() got an unexpected keyword argument 'level'...",
+            "Edge case failed: TransformOperations.arithmetic_encode() got an unexpected keyword argument 'level'...",
+            "Edge case failed: TransformOperations.arithmetic_encode() got an unexpected keyword argument 'level'..."
+          ]
+        },
+        "elias_gamma_encode": {
+          "success": false,
+          "error": "Operation not found in registry"
+        },
+        "elias_delta_encode": {
+          "success": false,
+          "error": "Operation not found in registry"
+        },
+        "golomb_encode": {
+          "success": false,
+          "error": "Operation not found in registry"
+        },
+        "fibonacci_encode": {
+          "success": false,
+          "error": "Operation not found in registry"
+        },
+        "phase_in_encode": {
+          "success": false,
+          "error": "Operation not found in registry"
+        },
+        "adaptive_huffman_encode": {
+          "success": false,
+          "error": "Operation not found in registry"
+        }
+      },
+      "validation_summary": {
+        "total_validations": 6,
+        "successful_validations": 0,
+        "failed_validations": 6,
+        "success_rate": 0.0,
+        "failure_counts": {
+          "dct_transform": 1,
+          "dwt_transform": 1,
+          "fft_transform": 1,
+          "huffman_encode": 1,
+          "lz77_encode": 1,
+          "arithmetic_encode": 1
+        },
+        "most_failed_operations": [
+          [
+            "dct_transform",
+            1
+          ],
+          [
+            "dwt_transform",
+            1
+          ],
+          [
+            "fft_transform",
+            1
+          ],
+          [
+            "huffman_encode",
+            1
+          ],
+          [
+            "lz77_encode",
+            1
+          ]
+        ]
+      }
+    },
+    "phase3": {
+      "phase": "Phase 3",
+      "error_handling": {
+        "test_error_0": {
+          "success": true,
+          "handling_time": 0.00011777877807617188,
+          "category": "validation",
+          "recovery_attempted": false,
+          "recovery_successful": false
+        },
+        "test_error_1": {
+          "success": true,
+          "handling_time": 5.555152893066406e-05,
+          "category": "unknown",
+          "recovery_attempted": false,
+          "recovery_successful": false
+        },
+        "test_error_2": {
+          "success": true,
+          "handling_time": 0.0031740665435791016,
+          "category": "memory",
+          "recovery_attempted": true,
+          "recovery_successful": true
+        },
+        "test_error_3": {
+          "success": true,
+          "handling_time": 5.0067901611328125e-05,
+          "category": "unknown",
+          "recovery_attempted": false,
+          "recovery_successful": false
+        },
+        "test_error_4": {
+          "success": true,
+          "handling_time": 3.4809112548828125e-05,
+          "category": "timeout",
+          "recovery_attempted": false,
+          "recovery_successful": false
+        }
+      },
+      "error_summary": {
+        "total_errors": 5,
+        "categories": {
+          "validation": 1,
+          "unknown": 2,
+          "memory": 1,
+          "timeout": 1
+        },
+        "recovery_attempts": 1,
+        "successful_recoveries": 1,
+        "recovery_rate": 1.0,
+        "most_common_errors": [
+          [
+            "unknown",
+            2
+          ],
+          [
+            "validation",
+            1
+          ],
+          [
+            "memory",
+            1
+          ],
+          [
+            "timeout",
+            1
+          ]
+        ]
+      }
+    },
+    "phase4": {
+      "phase": "Phase 4",
+      "gui_handling": {
+        "dependency_check": {
+          "success": true,
+          "result": false,
+          "gui_available": false
+        },
+        "psutil_fallback": {
+          "success": false,
+          "error": "No module named 'numpy'"
+        }
+      }
+    },
+    "integration": {
+      "phase": "Integration",
+      "results": {
+        "safe_strategy_execution": {
+          "success": true,
+          "proposal_time": 1.1444091796875e-05,
+          "operation": "rotate_right",
+          "params": {
+            "shift": 4
+          },
+          "accept_result": true,
+          "strategy_info": {
+            "name": "GreedyStrategy",
+            "iteration_count": 0,
+            "best_score": -Infinity,
+            "no_improvement_count": 0,
+            "converged": false,
+            "error_count": 0,
+            "recovery_count": 0,
+            "last_error": null
+          }
+        },
+        "operation_execution": {
+          "success": true,
+          "execution_time": 2.1696090698242188e-05,
+          "result_size": 100,
+          "reversible": false,
+          "reversibility_test": false,
+          "metadata": {
+            "operation": "rotate_right",
+            "shift": 4,
+            "bytes_affected": 100
+          }
+        }
+      }
+    }
+  }
+}

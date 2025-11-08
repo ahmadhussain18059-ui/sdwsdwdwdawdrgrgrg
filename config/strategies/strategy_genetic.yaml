@@ -1,0 +1,11 @@
+crossover_rate: 0.8
+crossover_type: single_point
+description: Evolutionary search with crossover and mutation
+elite_size: 5
+max_generations: 100
+mutation_rate: 0.1
+mutation_type: point
+name: Genetic Algorithm
+population_size: 50
+selection_method: tournament
+tournament_size: 3
