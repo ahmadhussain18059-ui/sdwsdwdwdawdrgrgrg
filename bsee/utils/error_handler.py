@@ -166,7 +166,7 @@ class OperationValidator:
                 validation_result['errors'].append("Operation function should accept at least 2 parameters")
 
             # Check return annotation if present
-            if hasattr(operation_func, '__annotations__') and 'return' in operation_func.__annotations__':
+            if hasattr(operation_func, '__annotations__') and 'return' in operation_func.__annotations__:
                 return_type = operation_func.__annotations__['return']
                 if not hasattr(return_type, '__origin__') or return_type.__origin__ is not tuple:
                     validation_result['warnings'].append("Operation should return Tuple[bytes, Callable, Dict]")
