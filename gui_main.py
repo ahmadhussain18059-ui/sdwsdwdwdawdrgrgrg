@@ -131,20 +131,46 @@ def setup_directories():
 
 
 def main():
-    """Main GUI entry point."""
+    """Main entry point with GUI/CLI fallback support."""
     print("BSEE - Binary Structure Exploration Engine")
-    print("GUI Version 1.0.0")
+    print("Version 1.0.0")
     print("=" * 50)
 
     # Check requirements
     check_python_version()
-    check_dependencies()
+    if not check_dependencies():
+        sys.exit(1)
+
     setup_directories()
 
     try:
-        # Create and run GUI
-        app = MainWindow()
-        app.run()
+        if GUI_AVAILABLE:
+            print("Starting GUI mode...")
+            # Create and run GUI
+            app = MainWindow()
+            app.run()
+        else:
+            print("Starting CLI fallback mode...")
+            print("Note: GUI mode not available due to missing dependencies")
+            print(f"Reason: {GUI_FALLBACK_MESSAGE}")
+            print()
+
+            # Import and run CLI main with simulated arguments
+            from main import main as cli_main, parse_arguments
+            import argparse
+
+            # Create a simple CLI interface when GUI is not available
+            try:
+                # Try to get arguments from command line, or provide simple defaults
+                if len(sys.argv) > 1:
+                    # Forward arguments to CLI main
+                    cli_main()
+                else:
+                    # Provide simple interactive CLI interface
+                    run_interactive_cli()
+            except SystemExit:
+                # Handle sys.exit() from CLI main gracefully
+                pass
 
     except KeyboardInterrupt:
         print("\nApplication interrupted by user")
@@ -154,6 +180,63 @@ def main():
         import traceback
         traceback.print_exc()
         sys.exit(1)
+
+
+def run_interactive_cli():
+    """Run a simple interactive CLI interface."""
+    print("Interactive CLI Mode - BSEE")
+    print("-" * 30)
+    print()
+
+    # Get input file
+    while True:
+        input_file = input("Enter path to binary file: ").strip()
+        if input_file and Path(input_file).exists():
+            break
+        print(f"File not found: {input_file}")
+
+    # Get strategy
+    strategies = ['greedy', 'beam', 'annealing', 'mcts', 'genetic', 'heuristic']
+    print(f"Available strategies: {', '.join(strategies)}")
+    while True:
+        strategy = input("Enter strategy (default: greedy): ").strip() or 'greedy'
+        if strategy in strategies:
+            break
+        print(f"Invalid strategy. Choose from: {', '.join(strategies)}")
+
+    # Create simulated CLI arguments
+    class SimulatedArgs:
+        def __init__(self):
+            self.input_file = input_file
+            self.policy = "config/policies/policy_ideality.yaml"
+            self.costs = "config/costs/cost_default.yaml"
+            self.strategy = strategy
+            self.metrics = "file_ideality_score,entropy_global,lz77_ratio"
+            self.target_metrics = "file_ideality_score=max,entropy_global=min"
+            self.max_operations = 100
+            self.max_cost = 1000
+            self.allowed_ops = None
+            self.operation_limit = None
+            self.output_dir = "results"
+            self.log_level = "INFO"
+
+    # Update sys.argv for CLI main
+    original_argv = sys.argv.copy()
+    sys.argv = [
+        'bsee',
+        input_file,
+        '--strategy', strategy,
+        '--max-operations', '100',
+        '--max-cost', '1000'
+    ]
+
+    try:
+        # Run CLI main
+        from main import main as cli_main
+        cli_main()
+    finally:
+        # Restore original argv
+        sys.argv = original_argv
 
 
 if __name__ == "__main__":
