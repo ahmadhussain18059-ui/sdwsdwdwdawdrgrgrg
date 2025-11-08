@@ -748,27 +748,472 @@ class TransformOperations:
 
     def huffman_encode(self, binary_data: bytes) -> Tuple[bytes, Callable, Dict]:
         """Huffman encoding."""
+        if not binary_data:
+            return binary_data, lambda: binary_data, {'operation': 'huffman_encode', 'bytes_affected': 0, 'reversible': True}
+
+        # Calculate byte frequencies
+        freq = {}
+        for byte in binary_data:
+            freq[byte] = freq.get(byte, 0) + 1
+
+        if len(freq) <= 1:
+            # No compression benefit if all bytes are the same
+            return binary_data, lambda: binary_data, {'operation': 'huffman_encode', 'bytes_affected': len(binary_data), 'reversible': True}
+
+        # Build Huffman tree
+        class HuffmanNode:
+            def __init__(self, char=None, freq=0, left=None, right=None):
+                self.char = char
+                self.freq = freq
+                self.left = left
+                self.right = right
+
+        # Create leaf nodes
+        nodes = [HuffmanNode(char=char, freq=freq) for char, freq in freq.items()]
+
+        # Build tree
+        import heapq
+        heapq.heapify(nodes, key=lambda x: x.freq)
+
+        while len(nodes) > 1:
+            left = heapq.heappop(nodes)
+            right = heapq.heappop(nodes)
+            merged = HuffmanNode(freq=left.freq + right.freq, left=left, right=right)
+            heapq.heappush(nodes, merged)
+
+        root = nodes[0]
+
+        # Generate codes
+        codes = {}
+        def traverse(node, code=''):
+            if node.char is not None:
+                codes[node.char] = code or '0'  # Single character gets code '0'
+                return
+            traverse(node.left, code + '0')
+            traverse(node.right, code + '1')
+
+        traverse(root)
+
+        # Encode data
+        encoded_bits = []
+        for byte in binary_data:
+            encoded_bits.append(codes[byte])
+
+        encoded_string = ''.join(encoded_bits)
+
+        # Pack bits into bytes
+        encoded_bytes = bytearray()
+        for i in range(0, len(encoded_string), 8):
+            byte_val = 0
+            for j in range(min(8, len(encoded_string) - i)):
+                if encoded_string[i + j] == '1':
+                    byte_val |= (1 << (7 - j))
+            encoded_bytes.append(byte_val)
+
+        # Store tree structure for decoding
+        tree_data = self._serialize_huffman_tree(root)
+        original_length = len(binary_data)
+
+        # Combine tree data and encoded data
+        # Format: [4 bytes: tree_data_len][tree_data][4 bytes: original_len][encoded_data]
+        result = (len(tree_data).to_bytes(4, 'big') +
+                 tree_data +
+                 original_length.to_bytes(4, 'big') +
+                 bytes(encoded_bytes))
+
         def inverse():
-            raise RuntimeError("Huffman encoding is not reversible")
-        return binary_data, inverse, {'operation': 'huffman_encode', 'bytes_affected': 0, 'reversible': False}
+            # Extract components
+            tree_data_len = int.from_bytes(result[:4], 'big')
+            tree_start = 4
+            tree_end = tree_start + tree_data_len
+            stored_tree_data = result[tree_start:tree_end]
+
+            original_len_start = tree_end
+            original_len_end = original_len_start + 4
+            original_length = int.from_bytes(result[original_len_start:original_len_end], 'big')
+
+            encoded_data = result[original_len_end:]
+
+            # Reconstruct tree
+            root = self._deserialize_huffman_tree(stored_tree_data)
+
+            # Decode data
+            decoded_bytes = bytearray()
+            current_node = root
+            bit_position = 0
+
+            for byte_val in encoded_data:
+                for bit_pos in range(8):
+                    if bit_position >= len(encoded_data) * 8:
+                        break
+
+                    if bit_position < len(encoded_data) * 8:
+                        bit = (byte_val >> (7 - bit_pos)) & 1
+                        bit_position += 1
+
+                        if current_node.char is not None:
+                            decoded_bytes.append(current_node.char)
+                            if len(decoded_bytes) >= original_length:
+                                break
+                            current_node = root
+
+                        if bit == 0:
+                            current_node = current_node.left
+                        else:
+                            current_node = current_node.right
+
+                        if current_node.char is not None:
+                            decoded_bytes.append(current_node.char)
+                            if len(decoded_bytes) >= original_length:
+                                break
+                            current_node = root
+
+                if len(decoded_bytes) >= original_length:
+                    break
+
+            return bytes(decoded_bytes[:original_length])
+
+        metadata = {
+            'operation': 'huffman_encode',
+            'original_length': original_length,
+            'compressed_length': len(result),
+            'compression_ratio': len(result) / original_length if original_length > 0 else 1.0,
+            'unique_symbols': len(freq),
+            'bytes_affected': original_length,
+            'reversible': True
+        }
+
+        return result, inverse, metadata
+
+    def _serialize_huffman_tree(self, node) -> bytes:
+        """Serialize Huffman tree for storage."""
+        def serialize_helper(node):
+            if node.char is not None:
+                # Leaf node: 1 + 8 bits for character
+                return bytes([1, node.char])
+            else:
+                # Internal node: 0 + left + right
+                left_data = serialize_helper(node.left)
+                right_data = serialize_helper(node.right)
+                return bytes([0]) + left_data + right_data
+
+        return serialize_helper(node)
+
+    def _deserialize_huffman_tree(self, data: bytes):
+        """Deserialize Huffman tree from stored data."""
+        class HuffmanNode:
+            def __init__(self, char=None, freq=0, left=None, right=None):
+                self.char = char
+                self.freq = freq
+                self.left = left
+                self.right = right
+
+        def deserialize_helper(index):
+            if index >= len(data):
+                return None, index
+
+            if data[index] == 1:
+                # Leaf node
+                if index + 1 >= len(data):
+                    return None, index
+                node = HuffmanNode(char=data[index + 1])
+                return node, index + 2
+            else:
+                # Internal node
+                left_node, new_index = deserialize_helper(index + 1)
+                right_node, new_index = deserialize_helper(new_index)
+                node = HuffmanNode(left=left_node, right=right_node)
+                return node, new_index
+
+        root, _ = deserialize_helper(0)
+        return root
 
     def run_length_encode(self, binary_data: bytes) -> Tuple[bytes, Callable, Dict]:
-        """Run-length encoding."""
-        def inverse():
-            raise RuntimeError("Run-length encoding is not reversible")
-        return binary_data, inverse, {'operation': 'run_length_encode', 'bytes_affected': 0, 'reversible': False}
+        """Run-length encoding with configurable run detection."""
+        if not binary_data:
+            return binary_data, lambda: binary_data, {'operation': 'run_length_encode', 'bytes_affected': 0, 'reversible': True}
 
-    def arithmetic_encode(self, binary_data: bytes) -> Tuple[bytes, Callable, Dict]:
-        """Arithmetic encoding."""
+        original_length = len(binary_data)
+        encoded = bytearray()
+
+        i = 0
+        while i < original_length:
+            current_byte = binary_data[i]
+            run_length = 1
+
+            # Count consecutive identical bytes
+            while (i + run_length < original_length and
+                   binary_data[i + run_length] == current_byte and
+                   run_length < 255):  # Limit run length to 255
+                run_length += 1
+
+            # Store as (byte, run_length) pairs
+            encoded.append(current_byte)
+            encoded.append(run_length)
+
+            i += run_length
+
+        new_data = bytes(encoded)
+
         def inverse():
-            raise RuntimeError("Arithmetic encoding is not reversible")
-        return binary_data, inverse, {'operation': 'arithmetic_encode', 'bytes_affected': 0, 'reversible': False}
+            decoded = bytearray()
+            i = 0
+            while i < len(new_data):
+                byte_val = new_data[i]
+                run_length = new_data[i + 1]
+                decoded.extend([byte_val] * run_length)
+                i += 2
+            return bytes(decoded)
+
+        metadata = {
+            'operation': 'run_length_encode',
+            'original_length': original_length,
+            'compressed_length': len(new_data),
+            'compression_ratio': len(new_data) / original_length if original_length > 0 else 1.0,
+            'runs_detected': len(new_data) // 2,
+            'bytes_affected': original_length,
+            'reversible': True
+        }
+
+        return new_data, inverse, metadata
 
     def lz77_encode(self, binary_data: bytes) -> Tuple[bytes, Callable, Dict]:
-        """LZ77 encoding."""
+        """LZ77 encoding with sliding window and look-ahead buffer."""
+        if not binary_data:
+            return binary_data, lambda: binary_data, {'operation': 'lz77_encode', 'bytes_affected': 0, 'reversible': True}
+
+        original_length = len(binary_data)
+        window_size = min(32768, original_length)  # Sliding window size
+        look_ahead_size = min(258, original_length)  # Look-ahead buffer size
+
+        encoded = bytearray()
+        position = 0
+
+        while position < original_length:
+            best_match = None
+            best_length = 0
+
+            # Search for longest match in sliding window
+            start_search = max(0, position - window_size)
+            search_buffer = binary_data[start_search:position]
+
+            if search_buffer:
+                # Find longest match
+                for match_start in range(len(search_buffer)):
+                    match_length = 0
+                    while (position + match_length < original_length and
+                           match_start + match_length < len(search_buffer) and
+                           binary_data[position + match_length] == search_buffer[match_start + match_length] and
+                           match_length < look_ahead_size):
+                        match_length += 1
+
+                    if match_length > best_length:
+                        best_length = match_length
+                        offset = len(search_buffer) - match_start
+                        best_match = (offset, best_length)
+
+            if best_match and best_length > 2:
+                # Encode as (offset, length) pair
+                offset, length = best_match
+                # Use 2 bytes each for offset and length
+                encoded.extend([
+                    0xFF,  # Flag for match
+                    (offset >> 8) & 0xFF,
+                    offset & 0xFF,
+                    (length >> 8) & 0xFF,
+                    length & 0xFF
+                ])
+                position += best_length
+            else:
+                # Literal byte
+                encoded.append(0x00)  # Flag for literal
+                encoded.append(binary_data[position])
+                position += 1
+
+        new_data = bytes(encoded)
+
         def inverse():
-            raise RuntimeError("LZ77 encoding is not reversible")
-        return binary_data, inverse, {'operation': 'lz77_encode', 'bytes_affected': 0, 'reversible': False}
+            decoded = bytearray()
+            i = 0
+            while i < len(new_data):
+                flag = new_data[i]
+                i += 1
+
+                if flag == 0x00:
+                    # Literal byte
+                    if i >= len(new_data):
+                        break
+                    decoded.append(new_data[i])
+                    i += 1
+                elif flag == 0xFF:
+                    # Match (offset, length)
+                    if i + 3 >= len(new_data):
+                        break
+                    offset = (new_data[i] << 8) | new_data[i + 1]
+                    length = (new_data[i + 2] << 8) | new_data[i + 3]
+                    i += 4
+
+                    # Copy matched data
+                    start_pos = len(decoded) - offset
+                    for j in range(length):
+                        if start_pos + j < len(decoded):
+                            decoded.append(decoded[start_pos + j])
+                        else:
+                            decoded.append(0)  # Safety fallback
+                else:
+                    # Invalid flag, treat as literal
+                    decoded.append(flag)
+
+            return bytes(decoded)
+
+        metadata = {
+            'operation': 'lz77_encode',
+            'original_length': original_length,
+            'compressed_length': len(new_data),
+            'compression_ratio': len(new_data) / original_length if original_length > 0 else 1.0,
+            'window_size': window_size,
+            'look_ahead_size': look_ahead_size,
+            'bytes_affected': original_length,
+            'reversible': True
+        }
+
+        return new_data, inverse, metadata
+
+    def arithmetic_encode(self, binary_data: bytes) -> Tuple[bytes, Callable, Dict]:
+        """Arithmetic coding with adaptive probability model."""
+        if not binary_data:
+            return binary_data, lambda: binary_data, {'operation': 'arithmetic_encode', 'bytes_affected': 0, 'reversible': True}
+
+        original_length = len(binary_data)
+
+        # Initialize probability model
+        freq = [0] * 256
+        total = 0
+
+        def update_model(byte):
+            nonlocal total
+            freq[byte] += 1
+            total += 1
+
+        def get_probability(byte):
+            if total == 0:
+                return 0.0, 1.0, 1.0
+            low = sum(freq[:byte]) / total
+            high = low + freq[byte] / total
+            return low, high, total
+
+        # Initialize with some probability
+        for byte in range(256):
+            freq[byte] = 1
+        total = 256
+
+        # Arithmetic encoding
+        low = 0.0
+        high = 1.0
+        precision = 32  # Number of bits for precision
+
+        encoded_bytes = bytearray()
+
+        for byte in binary_data:
+            byte_low, byte_high, _ = get_probability(byte)
+
+            range_size = high - low
+            high = low + range_size * byte_high
+            low = low + range_size * byte_low
+
+            # Scale to avoid underflow
+            while high - low < 0.5:
+                if low < 0.5:
+                    encoded_bytes.append(0)
+                    low *= 2
+                    high *= 2
+                else:
+                    encoded_bytes.append(1)
+                    low = (low - 0.5) * 2
+                    high = (high - 0.5) * 2
+
+            update_model(byte)
+
+        # Finalize encoding
+        encoded_bytes.append(1)  # Termination marker
+
+        # Store original length for decoding
+        result = original_length.to_bytes(4, 'big') + bytes(encoded_bytes)
+
+        def inverse():
+            # Extract original length
+            original_len = int.from_bytes(result[:4], 'big')
+            encoded_data = result[4:]
+
+            # Reset probability model
+            freq = [1] * 256
+            total = 256
+
+            def update_model(byte):
+                nonlocal total
+                freq[byte] += 1
+                total += 1
+
+            def get_byte_from_value(value):
+                cumulative = 0.0
+                for byte in range(256):
+                    byte_prob = freq[byte] / total
+                    if cumulative <= value < cumulative + byte_prob:
+                        return byte
+                    cumulative += byte_prob
+                return 255
+
+            # Decode
+            decoded = bytearray()
+            low = 0.0
+            high = 1.0
+            value = 0.5  # Start with middle value
+
+            bit_index = 0
+            current_byte = 0
+
+            while len(decoded) < original_len and bit_index < len(encoded_data) * 8:
+                byte_index = bit_index // 8
+                bit_offset = bit_index % 8
+
+                if byte_index < len(encoded_data):
+                    current_byte = encoded_data[byte_index]
+                    bit = (current_byte >> (7 - bit_offset)) & 1
+
+                    # Update value
+                    if bit == 1:
+                        value = (low + high) / 2
+                    else:
+                        value = low
+
+                    # Find corresponding byte
+                    decoded_byte = get_byte_from_value(value)
+                    decoded.append(decoded_byte)
+                    update_model(decoded_byte)
+
+                    # Update range
+                    byte_low, byte_high, _ = get_probability(decoded_byte)
+                    range_size = high - low
+                    high = low + range_size * byte_high
+                    low = low + range_size * byte_low
+
+                    bit_index += 1
+                else:
+                    break
+
+            return bytes(decoded[:original_len])
+
+        metadata = {
+            'operation': 'arithmetic_encode',
+            'original_length': original_length,
+            'compressed_length': len(new_data),
+            'compression_ratio': len(new_data) / original_length if original_length > 0 else 1.0,
+            'precision_bits': precision,
+            'bytes_affected': original_length,
+            'reversible': True
+        }
+
+        return result, inverse, metadata
 
     def distance_coding(self, binary_data: bytes) -> Tuple[bytes, Callable, Dict]:
         """Distance coding."""
