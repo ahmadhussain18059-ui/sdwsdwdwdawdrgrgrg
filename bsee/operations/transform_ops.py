@@ -77,21 +77,21 @@ class TransformOperations:
                 'description': 'Discrete cosine transform',
                 'required_params': [],
                 'optional_params': {},
-                'reversible': False
+                'reversible': True
             },
             'dwt_transform': {
                 'category': 'transform',
                 'description': 'Discrete wavelet transform',
                 'required_params': [],
                 'optional_params': {},
-                'reversible': False
+                'reversible': True
             },
             'fft_transform': {
                 'category': 'transform',
                 'description': 'Fast Fourier transform',
                 'required_params': [],
                 'optional_params': {},
-                'reversible': False
+                'reversible': True
             },
             'walsh_hadamard': {
                 'category': 'transform',
