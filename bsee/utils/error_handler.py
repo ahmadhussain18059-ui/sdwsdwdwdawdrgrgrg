@@ -264,15 +264,49 @@ class OperationValidator:
         except Exception as e:
             validation_result['errors'].append(f"Basic functionality test failed: {str(e)}")
 
+    def _generate_operation_params(self, operation_name: str) -> Dict[str, Any]:
+        """Generate appropriate parameters for an operation."""
+        import random
+
+        # Common parameter patterns
+        if 'xor' in operation_name.lower() or 'and' in operation_name.lower() or 'or' in operation_name.lower():
+            return {'constant': random.randint(1, 255)}
+        elif 'rotate' in operation_name.lower() or 'shift' in operation_name.lower():
+            return {'shift': random.randint(1, 7)}
+        elif 'swap' in operation_name.lower():
+            if 'bits' in operation_name.lower():
+                return {'bit1': random.randint(0, 7), 'bit2': random.randint(0, 7)}
+            else:
+                return {'pattern': bytes([random.randint(0, 255) for _ in range(4)])}
+        elif 'clear_bit' in operation_name.lower() or 'set_bit' in operation_name.lower() or 'toggle_bit' in operation_name.lower():
+            return {'bit_position': random.randint(0, 7)}
+        elif 'mask' in operation_name.lower():
+            return {'mask': random.randint(1, 255)}
+        elif 'shuffle' in operation_name.lower():
+            return {'seed': random.randint(0, 10000)}
+        elif 'transform' in operation_name.lower():
+            return {'strength': random.uniform(0.5, 1.5)}
+        elif 'encode' in operation_name.lower() or 'decode' in operation_name.lower():
+            return {'level': random.randint(1, 9)}
+        else:
+            return {}  # No parameters needed
+
     def _test_reversibility(self, operation_func: Callable, test_data: bytes,
                            validation_result: Dict[str, Any]) -> None:
         """Test operation reversibility."""
         try:
-            # Apply operation
+            # Apply operation with parameters
             if hasattr(operation_func, '__self__'):
-                result = operation_func(test_data)
+                op_name = operation_func.__name__
+                params = self._generate_operation_params(op_name)
+                result = operation_func(test_data, **params)
             else:
-                result = operation_func(test_data)
+                try:
+                    result = operation_func(test_data)
+                except TypeError:
+                    op_name = getattr(operation_func, '__name__', 'unknown')
+                    params = self._generate_operation_params(op_name)
+                    result = operation_func(test_data, **params)
 
             result_data, inverse_func, metadata = result
 
