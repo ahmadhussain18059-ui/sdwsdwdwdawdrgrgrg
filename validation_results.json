@@ -1,0 +1,2058 @@
+{
+  "summary": {
+    "total_operations": 101,
+    "successful_operations": 0,
+    "failed_operations": 101,
+    "success_rate": 0.0
+  },
+  "validation_summary": {
+    "total_validations": 101,
+    "successful_validations": 0,
+    "failed_validations": 101,
+    "success_rate": 0.0,
+    "failure_counts": {
+      "xor_constant": 1,
+      "xor_range": 1,
+      "not_bytes": 1,
+      "and_constant": 1,
+      "or_constant": 1,
+      "rotate_left": 1,
+      "rotate_right": 1,
+      "shift_left": 1,
+      "shift_right": 1,
+      "swap_nibbles": 1,
+      "swap_bits": 1,
+      "reverse_bits": 1,
+      "extract_high_nibble": 1,
+      "extract_low_nibble": 1,
+      "clear_bit": 1,
+      "set_bit": 1,
+      "toggle_bit": 1,
+      "mask_bits": 1,
+      "interleave_bits": 1,
+      "deinterleave_bits": 1,
+      "reverse_bytes": 1,
+      "shuffle_bytes": 1,
+      "byte_swap": 1,
+      "block_reverse": 1,
+      "rotate_bytes": 1,
+      "transpose_2d": 1,
+      "bit_interleave": 1,
+      "perfect_shuffle": 1,
+      "unshuffle": 1,
+      "bitonic_sort": 1,
+      "radix_sort": 1,
+      "frequency_sort": 1,
+      "block_shuffle": 1,
+      "interleave_blocks": 1,
+      "deinterleave_blocks": 1,
+      "delta_encode": 1,
+      "delta_decode": 1,
+      "adaptive_delta": 1,
+      "predictive_delta": 1,
+      "run_length_delta": 1,
+      "differential_encode": 1,
+      "cumulative_delta": 1,
+      "zigzag_delta": 1,
+      "block_delta": 1,
+      "windowed_delta": 1,
+      "byte_substitution": 1,
+      "sbox_substitution": 1,
+      "caesar_cipher": 1,
+      "affine_transform": 1,
+      "vigenere_cipher": 1,
+      "lookup_table": 1,
+      "byte_swap_pairs": 1,
+      "bit_substitution": 1,
+      "nibble_substitution": 1,
+      "custom_sbox": 1,
+      "dynamic_substitution": 1,
+      "frequency_substitution": 1,
+      "polynomial_substitution": 1,
+      "xor_key": 1,
+      "additive_key": 1,
+      "multiplicative_key": 1,
+      "rotating_key": 1,
+      "feistel_network": 1,
+      "spn_substitution": 1,
+      "huffman_substitution": 1,
+      "burrows_wheeler": 1,
+      "burrows_wheeler_inverse": 1,
+      "bitplane_extract": 1,
+      "bitplane_insert": 1,
+      "dct_transform": 1,
+      "dwt_transform": 1,
+      "fft_transform": 1,
+      "walsh_hadamard": 1,
+      "huffman_encode": 1,
+      "run_length_encode": 1,
+      "arithmetic_encode": 1,
+      "lz77_encode": 1,
+      "move_to_front": 1,
+      "distance_coding": 1,
+      "elias_gamma": 1,
+      "elias_delta": 1,
+      "golomb_coding": 1,
+      "fibonacci_coding": 1,
+      "phase_in_coding": 1,
+      "adaptive_huffman": 1,
+      "custom_filter": 1,
+      "pattern_replace": 1,
+      "data_embedding": 1,
+      "data_extraction": 1,
+      "checksum_add": 1,
+      "checksum_verify": 1,
+      "compression_custom": 1,
+      "encryption_custom": 1,
+      "hash_transform": 1,
+      "error_correction": 1,
+      "steganography_embed": 1,
+      "steganography_extract": 1,
+      "dna_encoding": 1,
+      "dna_decoding": 1,
+      "base64_encode": 1,
+      "base64_decode": 1
+    },
+    "most_failed_operations": [
+      [
+        "xor_constant",
+        1
+      ],
+      [
+        "xor_range",
+        1
+      ],
+      [
+        "not_bytes",
+        1
+      ],
+      [
+        "and_constant",
+        1
+      ],
+      [
+        "or_constant",
+        1
+      ]
+    ]
+  },
+  "error_summary": {
+    "total_errors": 0,
+    "categories": {},
+    "recovery_rate": 0.0
+  },
+  "detailed_results": {
+    "xor_constant": {
+      "success": false,
+      "errors": [
+        "Basic functionality test failed: BitwiseOperations.xor_with_constant() missing 1 required positional argument: 'constant'",
+        "Reversibility test failed: BitwiseOperations.xor_with_constant() missing 1 required positional argument: 'constant'",
+        "All edge cases failed"
+      ],
+      "warnings": [
+        "Edge case failed: BitwiseOperations.xor_with_constant() missing 1 required positional argument: 'constant'...",
+        "Edge case failed: BitwiseOperations.xor_with_constant() missing 1 required positional argument: 'constant'...",
+        "Edge case failed: BitwiseOperations.xor_with_constant() missing 1 required positional argument: 'constant'...",
+        "Edge case failed: BitwiseOperations.xor_with_constant() missing 1 required positional argument: 'constant'...",
+        "Edge case failed: BitwiseOperations.xor_with_constant() missing 1 required positional argument: 'constant'...",
+        "Edge case failed: BitwiseOperations.xor_with_constant() missing 1 required positional argument: 'constant'..."
+      ],
+      "reversibility_test": false,
+      "parameter_validation": true,
+      "edge_case_handling": false,
+      "execution_time": 0.04842948913574219
+    },
+    "xor_range": {
+      "success": false,
+      "errors": [
+        "Basic functionality test failed: BitwiseOperations.xor_with_range() missing 3 required positional arguments: 'offset', 'length', and 'constant'",
+        "Reversibility test failed: BitwiseOperations.xor_with_range() missing 3 required positional arguments: 'offset', 'length', and 'constant'",
+        "All edge cases failed"
+      ],
+      "warnings": [
+        "Edge case failed: BitwiseOperations.xor_with_range() missing 3 required positional arguments: 'offset', 'length', and ...",
+        "Edge case failed: BitwiseOperations.xor_with_range() missing 3 required positional arguments: 'offset', 'length', and ...",
+        "Edge case failed: BitwiseOperations.xor_with_range() missing 3 required positional arguments: 'offset', 'length', and ...",
+        "Edge case failed: BitwiseOperations.xor_with_range() missing 3 required positional arguments: 'offset', 'length', and ...",
+        "Edge case failed: BitwiseOperations.xor_with_range() missing 3 required positional arguments: 'offset', 'length', and ...",
+        "Edge case failed: BitwiseOperations.xor_with_range() missing 3 required positional arguments: 'offset', 'length', and ..."
+      ],
+      "reversibility_test": false,
+      "parameter_validation": true,
+      "edge_case_handling": false,
+      "execution_time": 0.00017976760864257812
+    },
+    "not_bytes": {
+      "success": false,
+      "errors": [
+        "Operation function should accept at least 2 parameters"
+      ],
+      "warnings": [
+        "Operation accepted invalid input type: list",
+        "Operation accepted invalid input type: dict",
+        "Missing metadata field: reversible",
+        "Missing metadata field: original_size",
+        "Operation marked as non-reversible"
+      ],
+      "reversibility_test": false,
+      "parameter_validation": true,
+      "edge_case_handling": true,
+      "execution_time": 0.0005040168762207031
+    },
+    "and_constant": {
+      "success": false,
+      "errors": [
+        "Basic functionality test failed: BitwiseOperations.and_with_constant() missing 1 required positional argument: 'constant'",
+        "Reversibility test failed: BitwiseOperations.and_with_constant() missing 1 required positional argument: 'constant'",
+        "All edge cases failed"
+      ],
+      "warnings": [
+        "Edge case failed: BitwiseOperations.and_with_constant() missing 1 required positional argument: 'constant'...",
+        "Edge case failed: BitwiseOperations.and_with_constant() missing 1 required positional argument: 'constant'...",
+        "Edge case failed: BitwiseOperations.and_with_constant() missing 1 required positional argument: 'constant'...",
+        "Edge case failed: BitwiseOperations.and_with_constant() missing 1 required positional argument: 'constant'...",
+        "Edge case failed: BitwiseOperations.and_with_constant() missing 1 required positional argument: 'constant'...",
+        "Edge case failed: BitwiseOperations.and_with_constant() missing 1 required positional argument: 'constant'..."
+      ],
+      "reversibility_test": false,
+      "parameter_validation": true,
+      "edge_case_handling": false,
+      "execution_time": 0.000179290771484375
+    },
+    "or_constant": {
+      "success": false,
+      "errors": [
+        "Basic functionality test failed: BitwiseOperations.or_constant() missing 1 required positional argument: 'constant'",
+        "Reversibility test failed: BitwiseOperations.or_constant() missing 1 required positional argument: 'constant'",
+        "All edge cases failed"
+      ],
+      "warnings": [
+        "Edge case failed: BitwiseOperations.or_constant() missing 1 required positional argument: 'constant'...",
+        "Edge case failed: BitwiseOperations.or_constant() missing 1 required positional argument: 'constant'...",
+        "Edge case failed: BitwiseOperations.or_constant() missing 1 required positional argument: 'constant'...",
+        "Edge case failed: BitwiseOperations.or_constant() missing 1 required positional argument: 'constant'...",
+        "Edge case failed: BitwiseOperations.or_constant() missing 1 required positional argument: 'constant'...",
+        "Edge case failed: BitwiseOperations.or_constant() missing 1 required positional argument: 'constant'..."
+      ],
+      "reversibility_test": false,
+      "parameter_validation": true,
+      "edge_case_handling": false,
+      "execution_time": 0.00014090538024902344
+    },
+    "rotate_left": {
+      "success": false,
+      "errors": [
+        "Basic functionality test failed: BitwiseOperations.rotate_bits_left() missing 1 required positional argument: 'shift'",
+        "Reversibility test failed: BitwiseOperations.rotate_bits_left() missing 1 required positional argument: 'shift'",
+        "All edge cases failed"
+      ],
+      "warnings": [
+        "Edge case failed: BitwiseOperations.rotate_bits_left() missing 1 required positional argument: 'shift'...",
+        "Edge case failed: BitwiseOperations.rotate_bits_left() missing 1 required positional argument: 'shift'...",
+        "Edge case failed: BitwiseOperations.rotate_bits_left() missing 1 required positional argument: 'shift'...",
+        "Edge case failed: BitwiseOperations.rotate_bits_left() missing 1 required positional argument: 'shift'...",
+        "Edge case failed: BitwiseOperations.rotate_bits_left() missing 1 required positional argument: 'shift'...",
+        "Edge case failed: BitwiseOperations.rotate_bits_left() missing 1 required positional argument: 'shift'..."
+      ],
+      "reversibility_test": false,
+      "parameter_validation": true,
+      "edge_case_handling": false,
+      "execution_time": 0.0001323223114013672
+    },
+    "rotate_right": {
+      "success": false,
+      "errors": [
+        "Basic functionality test failed: BitwiseOperations.rotate_bits_right() missing 1 required positional argument: 'shift'",
+        "Reversibility test failed: BitwiseOperations.rotate_bits_right() missing 1 required positional argument: 'shift'",
+        "All edge cases failed"
+      ],
+      "warnings": [
+        "Edge case failed: BitwiseOperations.rotate_bits_right() missing 1 required positional argument: 'shift'...",
+        "Edge case failed: BitwiseOperations.rotate_bits_right() missing 1 required positional argument: 'shift'...",
+        "Edge case failed: BitwiseOperations.rotate_bits_right() missing 1 required positional argument: 'shift'...",
+        "Edge case failed: BitwiseOperations.rotate_bits_right() missing 1 required positional argument: 'shift'...",
+        "Edge case failed: BitwiseOperations.rotate_bits_right() missing 1 required positional argument: 'shift'...",
+        "Edge case failed: BitwiseOperations.rotate_bits_right() missing 1 required positional argument: 'shift'..."
+      ],
+      "reversibility_test": false,
+      "parameter_validation": true,
+      "edge_case_handling": false,
+      "execution_time": 0.0001270771026611328
+    },
+    "shift_left": {
+      "success": false,
+      "errors": [
+        "Basic functionality test failed: BitwiseOperations.shift_bits_left() missing 1 required positional argument: 'shift'",
+        "Reversibility test failed: BitwiseOperations.shift_bits_left() missing 1 required positional argument: 'shift'",
+        "All edge cases failed"
+      ],
+      "warnings": [
+        "Edge case failed: BitwiseOperations.shift_bits_left() missing 1 required positional argument: 'shift'...",
+        "Edge case failed: BitwiseOperations.shift_bits_left() missing 1 required positional argument: 'shift'...",
+        "Edge case failed: BitwiseOperations.shift_bits_left() missing 1 required positional argument: 'shift'...",
+        "Edge case failed: BitwiseOperations.shift_bits_left() missing 1 required positional argument: 'shift'...",
+        "Edge case failed: BitwiseOperations.shift_bits_left() missing 1 required positional argument: 'shift'...",
+        "Edge case failed: BitwiseOperations.shift_bits_left() missing 1 required positional argument: 'shift'..."
+      ],
+      "reversibility_test": false,
+      "parameter_validation": true,
+      "edge_case_handling": false,
+      "execution_time": 0.0001895427703857422
+    },
+    "shift_right": {
+      "success": false,
+      "errors": [
+        "Basic functionality test failed: BitwiseOperations.shift_bits_right() missing 1 required positional argument: 'shift'",
+        "Reversibility test failed: BitwiseOperations.shift_bits_right() missing 1 required positional argument: 'shift'",
+        "All edge cases failed"
+      ],
+      "warnings": [
+        "Edge case failed: BitwiseOperations.shift_bits_right() missing 1 required positional argument: 'shift'...",
+        "Edge case failed: BitwiseOperations.shift_bits_right() missing 1 required positional argument: 'shift'...",
+        "Edge case failed: BitwiseOperations.shift_bits_right() missing 1 required positional argument: 'shift'...",
+        "Edge case failed: BitwiseOperations.shift_bits_right() missing 1 required positional argument: 'shift'...",
+        "Edge case failed: BitwiseOperations.shift_bits_right() missing 1 required positional argument: 'shift'...",
+        "Edge case failed: BitwiseOperations.shift_bits_right() missing 1 required positional argument: 'shift'..."
+      ],
+      "reversibility_test": false,
+      "parameter_validation": true,
+      "edge_case_handling": false,
+      "execution_time": 0.00013113021850585938
+    },
+    "swap_nibbles": {
+      "success": false,
+      "errors": [
+        "Operation function should accept at least 2 parameters"
+      ],
+      "warnings": [
+        "Operation accepted invalid input type: list",
+        "Operation accepted invalid input type: dict",
+        "Missing metadata field: reversible",
+        "Missing metadata field: original_size",
+        "Operation marked as non-reversible"
+      ],
+      "reversibility_test": false,
+      "parameter_validation": true,
+      "edge_case_handling": true,
+      "execution_time": 0.00042629241943359375
+    },
+    "swap_bits": {
+      "success": false,
+      "errors": [
+        "Basic functionality test failed: BitwiseOperations.swap_bits_in_byte() missing 2 required positional arguments: 'bit1' and 'bit2'",
+        "Reversibility test failed: BitwiseOperations.swap_bits_in_byte() missing 2 required positional arguments: 'bit1' and 'bit2'",
+        "All edge cases failed"
+      ],
+      "warnings": [
+        "Edge case failed: BitwiseOperations.swap_bits_in_byte() missing 2 required positional arguments: 'bit1' and 'bit2'...",
+        "Edge case failed: BitwiseOperations.swap_bits_in_byte() missing 2 required positional arguments: 'bit1' and 'bit2'...",
+        "Edge case failed: BitwiseOperations.swap_bits_in_byte() missing 2 required positional arguments: 'bit1' and 'bit2'...",
+        "Edge case failed: BitwiseOperations.swap_bits_in_byte() missing 2 required positional arguments: 'bit1' and 'bit2'...",
+        "Edge case failed: BitwiseOperations.swap_bits_in_byte() missing 2 required positional arguments: 'bit1' and 'bit2'...",
+        "Edge case failed: BitwiseOperations.swap_bits_in_byte() missing 2 required positional arguments: 'bit1' and 'bit2'..."
+      ],
+      "reversibility_test": false,
+      "parameter_validation": true,
+      "edge_case_handling": false,
+      "execution_time": 0.00015497207641601562
+    },
+    "reverse_bits": {
+      "success": false,
+      "errors": [
+        "Operation function should accept at least 2 parameters"
+      ],
+      "warnings": [
+        "Operation accepted invalid input type: list",
+        "Operation accepted invalid input type: dict",
+        "Missing metadata field: reversible",
+        "Missing metadata field: original_size",
+        "Operation marked as non-reversible"
+      ],
+      "reversibility_test": false,
+      "parameter_validation": true,
+      "edge_case_handling": true,
+      "execution_time": 0.0019588470458984375
+    },
+    "extract_high_nibble": {
+      "success": false,
+      "errors": [
+        "Operation function should accept at least 2 parameters"
+      ],
+      "warnings": [
+        "Operation accepted invalid input type: list",
+        "Operation accepted invalid input type: dict",
+        "Missing metadata field: original_size",
+        "Operation marked as non-reversible"
+      ],
+      "reversibility_test": false,
+      "parameter_validation": true,
+      "edge_case_handling": true,
+      "execution_time": 0.0003066062927246094
+    },
+    "extract_low_nibble": {
+      "success": false,
+      "errors": [
+        "Operation function should accept at least 2 parameters"
+      ],
+      "warnings": [
+        "Operation accepted invalid input type: list",
+        "Operation accepted invalid input type: dict",
+        "Missing metadata field: original_size",
+        "Operation marked as non-reversible"
+      ],
+      "reversibility_test": false,
+      "parameter_validation": true,
+      "edge_case_handling": true,
+      "execution_time": 0.0002720355987548828
+    },
+    "clear_bit": {
+      "success": false,
+      "errors": [
+        "Basic functionality test failed: BitwiseOperations.clear_bit() missing 1 required positional argument: 'bit_position'",
+        "Reversibility test failed: BitwiseOperations.clear_bit() missing 1 required positional argument: 'bit_position'",
+        "All edge cases failed"
+      ],
+      "warnings": [
+        "Edge case failed: BitwiseOperations.clear_bit() missing 1 required positional argument: 'bit_position'...",
+        "Edge case failed: BitwiseOperations.clear_bit() missing 1 required positional argument: 'bit_position'...",
+        "Edge case failed: BitwiseOperations.clear_bit() missing 1 required positional argument: 'bit_position'...",
+        "Edge case failed: BitwiseOperations.clear_bit() missing 1 required positional argument: 'bit_position'...",
+        "Edge case failed: BitwiseOperations.clear_bit() missing 1 required positional argument: 'bit_position'...",
+        "Edge case failed: BitwiseOperations.clear_bit() missing 1 required positional argument: 'bit_position'..."
+      ],
+      "reversibility_test": false,
+      "parameter_validation": true,
+      "edge_case_handling": false,
+      "execution_time": 0.00016736984252929688
+    },
+    "set_bit": {
+      "success": false,
+      "errors": [
+        "Basic functionality test failed: BitwiseOperations.set_bit() missing 1 required positional argument: 'bit_position'",
+        "Reversibility test failed: BitwiseOperations.set_bit() missing 1 required positional argument: 'bit_position'",
+        "All edge cases failed"
+      ],
+      "warnings": [
+        "Edge case failed: BitwiseOperations.set_bit() missing 1 required positional argument: 'bit_position'...",
+        "Edge case failed: BitwiseOperations.set_bit() missing 1 required positional argument: 'bit_position'...",
+        "Edge case failed: BitwiseOperations.set_bit() missing 1 required positional argument: 'bit_position'...",
+        "Edge case failed: BitwiseOperations.set_bit() missing 1 required positional argument: 'bit_position'...",
+        "Edge case failed: BitwiseOperations.set_bit() missing 1 required positional argument: 'bit_position'...",
+        "Edge case failed: BitwiseOperations.set_bit() missing 1 required positional argument: 'bit_position'..."
+      ],
+      "reversibility_test": false,
+      "parameter_validation": true,
+      "edge_case_handling": false,
+      "execution_time": 0.00013136863708496094
+    },
+    "toggle_bit": {
+      "success": false,
+      "errors": [
+        "Basic functionality test failed: BitwiseOperations.toggle_bit() missing 1 required positional argument: 'bit_position'",
+        "Reversibility test failed: BitwiseOperations.toggle_bit() missing 1 required positional argument: 'bit_position'",
+        "All edge cases failed"
+      ],
+      "warnings": [
+        "Edge case failed: BitwiseOperations.toggle_bit() missing 1 required positional argument: 'bit_position'...",
+        "Edge case failed: BitwiseOperations.toggle_bit() missing 1 required positional argument: 'bit_position'...",
+        "Edge case failed: BitwiseOperations.toggle_bit() missing 1 required positional argument: 'bit_position'...",
+        "Edge case failed: BitwiseOperations.toggle_bit() missing 1 required positional argument: 'bit_position'...",
+        "Edge case failed: BitwiseOperations.toggle_bit() missing 1 required positional argument: 'bit_position'...",
+        "Edge case failed: BitwiseOperations.toggle_bit() missing 1 required positional argument: 'bit_position'..."
+      ],
+      "reversibility_test": false,
+      "parameter_validation": true,
+      "edge_case_handling": false,
+      "execution_time": 0.00012946128845214844
+    },
+    "mask_bits": {
+      "success": false,
+      "errors": [
+        "Basic functionality test failed: BitwiseOperations.mask_bits() missing 1 required positional argument: 'mask'",
+        "Reversibility test failed: BitwiseOperations.mask_bits() missing 1 required positional argument: 'mask'",
+        "All edge cases failed"
+      ],
+      "warnings": [
+        "Edge case failed: BitwiseOperations.mask_bits() missing 1 required positional argument: 'mask'...",
+        "Edge case failed: BitwiseOperations.mask_bits() missing 1 required positional argument: 'mask'...",
+        "Edge case failed: BitwiseOperations.mask_bits() missing 1 required positional argument: 'mask'...",
+        "Edge case failed: BitwiseOperations.mask_bits() missing 1 required positional argument: 'mask'...",
+        "Edge case failed: BitwiseOperations.mask_bits() missing 1 required positional argument: 'mask'...",
+        "Edge case failed: BitwiseOperations.mask_bits() missing 1 required positional argument: 'mask'..."
+      ],
+      "reversibility_test": false,
+      "parameter_validation": true,
+      "edge_case_handling": false,
+      "execution_time": 0.00012755393981933594
+    },
+    "interleave_bits": {
+      "success": false,
+      "errors": [
+        "Operation function should accept at least 2 parameters"
+      ],
+      "warnings": [
+        "Operation accepted invalid input type: list",
+        "Operation accepted invalid input type: dict",
+        "Missing metadata field: reversible",
+        "Missing metadata field: original_size",
+        "Operation marked as non-reversible"
+      ],
+      "reversibility_test": false,
+      "parameter_validation": true,
+      "edge_case_handling": true,
+      "execution_time": 0.0018427371978759766
+    },
+    "deinterleave_bits": {
+      "success": false,
+      "errors": [
+        "Operation function should accept at least 2 parameters"
+      ],
+      "warnings": [
+        "Operation accepted invalid input type: list",
+        "Operation accepted invalid input type: dict",
+        "Missing metadata field: reversible",
+        "Missing metadata field: original_size",
+        "Operation marked as non-reversible"
+      ],
+      "reversibility_test": false,
+      "parameter_validation": true,
+      "edge_case_handling": true,
+      "execution_time": 0.0016932487487792969
+    },
+    "reverse_bytes": {
+      "success": false,
+      "errors": [
+        "Operation function should accept at least 2 parameters",
+        "Unexpected error with invalid input dict: slice(None, None, -1)"
+      ],
+      "warnings": [
+        "Operation accepted invalid input type: str",
+        "Operation accepted invalid input type: list",
+        "Missing metadata field: reversible",
+        "Missing metadata field: original_size",
+        "Operation marked as non-reversible"
+      ],
+      "reversibility_test": false,
+      "parameter_validation": true,
+      "edge_case_handling": true,
+      "execution_time": 0.0001499652862548828
+    },
+    "shuffle_bytes": {
+      "success": false,
+      "errors": [
+        "Basic functionality test failed: ReorderingOperations.shuffle_bytes() missing 1 required positional argument: 'seed'",
+        "Reversibility test failed: ReorderingOperations.shuffle_bytes() missing 1 required positional argument: 'seed'",
+        "All edge cases failed"
+      ],
+      "warnings": [
+        "Edge case failed: ReorderingOperations.shuffle_bytes() missing 1 required positional argument: 'seed'...",
+        "Edge case failed: ReorderingOperations.shuffle_bytes() missing 1 required positional argument: 'seed'...",
+        "Edge case failed: ReorderingOperations.shuffle_bytes() missing 1 required positional argument: 'seed'...",
+        "Edge case failed: ReorderingOperations.shuffle_bytes() missing 1 required positional argument: 'seed'...",
+        "Edge case failed: ReorderingOperations.shuffle_bytes() missing 1 required positional argument: 'seed'...",
+        "Edge case failed: ReorderingOperations.shuffle_bytes() missing 1 required positional argument: 'seed'..."
+      ],
+      "reversibility_test": false,
+      "parameter_validation": true,
+      "edge_case_handling": false,
+      "execution_time": 0.00013709068298339844
+    },
+    "byte_swap": {
+      "success": false,
+      "errors": [
+        "Basic functionality test failed: ReorderingOperations.byte_swap() missing 2 required positional arguments: 'pos1' and 'pos2'",
+        "Reversibility test failed: ReorderingOperations.byte_swap() missing 2 required positional arguments: 'pos1' and 'pos2'",
+        "All edge cases failed"
+      ],
+      "warnings": [
+        "Edge case failed: ReorderingOperations.byte_swap() missing 2 required positional arguments: 'pos1' and 'pos2'...",
+        "Edge case failed: ReorderingOperations.byte_swap() missing 2 required positional arguments: 'pos1' and 'pos2'...",
+        "Edge case failed: ReorderingOperations.byte_swap() missing 2 required positional arguments: 'pos1' and 'pos2'...",
+        "Edge case failed: ReorderingOperations.byte_swap() missing 2 required positional arguments: 'pos1' and 'pos2'...",
+        "Edge case failed: ReorderingOperations.byte_swap() missing 2 required positional arguments: 'pos1' and 'pos2'...",
+        "Edge case failed: ReorderingOperations.byte_swap() missing 2 required positional arguments: 'pos1' and 'pos2'..."
+      ],
+      "reversibility_test": false,
+      "parameter_validation": true,
+      "edge_case_handling": false,
+      "execution_time": 0.00013566017150878906
+    },
+    "block_reverse": {
+      "success": false,
+      "errors": [
+        "Basic functionality test failed: ReorderingOperations.block_reverse() missing 1 required positional argument: 'block_size'",
+        "Reversibility test failed: ReorderingOperations.block_reverse() missing 1 required positional argument: 'block_size'",
+        "All edge cases failed"
+      ],
+      "warnings": [
+        "Edge case failed: ReorderingOperations.block_reverse() missing 1 required positional argument: 'block_size'...",
+        "Edge case failed: ReorderingOperations.block_reverse() missing 1 required positional argument: 'block_size'...",
+        "Edge case failed: ReorderingOperations.block_reverse() missing 1 required positional argument: 'block_size'...",
+        "Edge case failed: ReorderingOperations.block_reverse() missing 1 required positional argument: 'block_size'...",
+        "Edge case failed: ReorderingOperations.block_reverse() missing 1 required positional argument: 'block_size'...",
+        "Edge case failed: ReorderingOperations.block_reverse() missing 1 required positional argument: 'block_size'..."
+      ],
+      "reversibility_test": false,
+      "parameter_validation": true,
+      "edge_case_handling": false,
+      "execution_time": 0.0001990795135498047
+    },
+    "rotate_bytes": {
+      "success": false,
+      "errors": [
+        "Basic functionality test failed: ReorderingOperations.rotate_bytes() missing 1 required positional argument: 'shift'",
+        "Reversibility test failed: ReorderingOperations.rotate_bytes() missing 1 required positional argument: 'shift'",
+        "All edge cases failed"
+      ],
+      "warnings": [
+        "Edge case failed: ReorderingOperations.rotate_bytes() missing 1 required positional argument: 'shift'...",
+        "Edge case failed: ReorderingOperations.rotate_bytes() missing 1 required positional argument: 'shift'...",
+        "Edge case failed: ReorderingOperations.rotate_bytes() missing 1 required positional argument: 'shift'...",
+        "Edge case failed: ReorderingOperations.rotate_bytes() missing 1 required positional argument: 'shift'...",
+        "Edge case failed: ReorderingOperations.rotate_bytes() missing 1 required positional argument: 'shift'...",
+        "Edge case failed: ReorderingOperations.rotate_bytes() missing 1 required positional argument: 'shift'..."
+      ],
+      "reversibility_test": false,
+      "parameter_validation": true,
+      "edge_case_handling": false,
+      "execution_time": 0.0001385211944580078
+    },
+    "transpose_2d": {
+      "success": false,
+      "errors": [
+        "Basic functionality test failed: ReorderingOperations.transpose_2d() missing 1 required positional argument: 'width'",
+        "Reversibility test failed: ReorderingOperations.transpose_2d() missing 1 required positional argument: 'width'",
+        "All edge cases failed"
+      ],
+      "warnings": [
+        "Edge case failed: ReorderingOperations.transpose_2d() missing 1 required positional argument: 'width'...",
+        "Edge case failed: ReorderingOperations.transpose_2d() missing 1 required positional argument: 'width'...",
+        "Edge case failed: ReorderingOperations.transpose_2d() missing 1 required positional argument: 'width'...",
+        "Edge case failed: ReorderingOperations.transpose_2d() missing 1 required positional argument: 'width'...",
+        "Edge case failed: ReorderingOperations.transpose_2d() missing 1 required positional argument: 'width'...",
+        "Edge case failed: ReorderingOperations.transpose_2d() missing 1 required positional argument: 'width'..."
+      ],
+      "reversibility_test": false,
+      "parameter_validation": true,
+      "edge_case_handling": false,
+      "execution_time": 0.00013017654418945312
+    },
+    "bit_interleave": {
+      "success": false,
+      "errors": [
+        "Operation function should accept at least 2 parameters"
+      ],
+      "warnings": [
+        "Operation accepted invalid input type: str",
+        "Operation accepted invalid input type: list",
+        "Operation accepted invalid input type: dict",
+        "Missing metadata field: reversible",
+        "Missing metadata field: original_size",
+        "Operation marked as non-reversible"
+      ],
+      "reversibility_test": false,
+      "parameter_validation": true,
+      "edge_case_handling": true,
+      "execution_time": 0.0001285076141357422
+    },
+    "perfect_shuffle": {
+      "success": false,
+      "errors": [
+        "Operation function should accept at least 2 parameters"
+      ],
+      "warnings": [
+        "Operation accepted invalid input type: list",
+        "Operation accepted invalid input type: dict",
+        "Missing metadata field: reversible",
+        "Missing metadata field: original_size",
+        "Operation marked as non-reversible"
+      ],
+      "reversibility_test": false,
+      "parameter_validation": true,
+      "edge_case_handling": true,
+      "execution_time": 0.0003352165222167969
+    },
+    "unshuffle": {
+      "success": false,
+      "errors": [
+        "Operation function should accept at least 2 parameters"
+      ],
+      "warnings": [
+        "Operation accepted invalid input type: list",
+        "Operation accepted invalid input type: dict",
+        "Missing metadata field: reversible",
+        "Missing metadata field: original_size",
+        "Operation marked as non-reversible"
+      ],
+      "reversibility_test": false,
+      "parameter_validation": true,
+      "edge_case_handling": true,
+      "execution_time": 0.00033092498779296875
+    },
+    "bitonic_sort": {
+      "success": false,
+      "errors": [
+        "Operation function should accept at least 2 parameters"
+      ],
+      "warnings": [
+        "Operation accepted invalid input type: list",
+        "Operation accepted invalid input type: dict",
+        "Missing metadata field: original_size",
+        "Operation marked as non-reversible"
+      ],
+      "reversibility_test": false,
+      "parameter_validation": true,
+      "edge_case_handling": true,
+      "execution_time": 0.0001747608184814453
+    },
+    "radix_sort": {
+      "success": false,
+      "errors": [
+        "Operation function should accept at least 2 parameters"
+      ],
+      "warnings": [
+        "Operation accepted invalid input type: list",
+        "Operation accepted invalid input type: dict",
+        "Missing metadata field: original_size",
+        "Operation marked as non-reversible"
+      ],
+      "reversibility_test": false,
+      "parameter_validation": true,
+      "edge_case_handling": true,
+      "execution_time": 0.00017023086547851562
+    },
+    "frequency_sort": {
+      "success": false,
+      "errors": [
+        "Operation function should accept at least 2 parameters"
+      ],
+      "warnings": [
+        "Operation accepted invalid input type: list",
+        "Operation accepted invalid input type: dict",
+        "Missing metadata field: original_size",
+        "Operation marked as non-reversible"
+      ],
+      "reversibility_test": false,
+      "parameter_validation": true,
+      "edge_case_handling": true,
+      "execution_time": 0.0007648468017578125
+    },
+    "block_shuffle": {
+      "success": false,
+      "errors": [
+        "Basic functionality test failed: ReorderingOperations.block_shuffle() missing 2 required positional arguments: 'block_size' and 'seed'",
+        "Reversibility test failed: ReorderingOperations.block_shuffle() missing 2 required positional arguments: 'block_size' and 'seed'",
+        "All edge cases failed"
+      ],
+      "warnings": [
+        "Edge case failed: ReorderingOperations.block_shuffle() missing 2 required positional arguments: 'block_size' and 'seed...",
+        "Edge case failed: ReorderingOperations.block_shuffle() missing 2 required positional arguments: 'block_size' and 'seed...",
+        "Edge case failed: ReorderingOperations.block_shuffle() missing 2 required positional arguments: 'block_size' and 'seed...",
+        "Edge case failed: ReorderingOperations.block_shuffle() missing 2 required positional arguments: 'block_size' and 'seed...",
+        "Edge case failed: ReorderingOperations.block_shuffle() missing 2 required positional arguments: 'block_size' and 'seed...",
+        "Edge case failed: ReorderingOperations.block_shuffle() missing 2 required positional arguments: 'block_size' and 'seed..."
+      ],
+      "reversibility_test": false,
+      "parameter_validation": true,
+      "edge_case_handling": false,
+      "execution_time": 0.00014662742614746094
+    },
+    "interleave_blocks": {
+      "success": false,
+      "errors": [
+        "Basic functionality test failed: ReorderingOperations.interleave_blocks() missing 1 required positional argument: 'block_size'",
+        "Reversibility test failed: ReorderingOperations.interleave_blocks() missing 1 required positional argument: 'block_size'",
+        "All edge cases failed"
+      ],
+      "warnings": [
+        "Edge case failed: ReorderingOperations.interleave_blocks() missing 1 required positional argument: 'block_size'...",
+        "Edge case failed: ReorderingOperations.interleave_blocks() missing 1 required positional argument: 'block_size'...",
+        "Edge case failed: ReorderingOperations.interleave_blocks() missing 1 required positional argument: 'block_size'...",
+        "Edge case failed: ReorderingOperations.interleave_blocks() missing 1 required positional argument: 'block_size'...",
+        "Edge case failed: ReorderingOperations.interleave_blocks() missing 1 required positional argument: 'block_size'...",
+        "Edge case failed: ReorderingOperations.interleave_blocks() missing 1 required positional argument: 'block_size'..."
+      ],
+      "reversibility_test": false,
+      "parameter_validation": true,
+      "edge_case_handling": false,
+      "execution_time": 0.00015234947204589844
+    },
+    "deinterleave_blocks": {
+      "success": false,
+      "errors": [
+        "Basic functionality test failed: ReorderingOperations.deinterleave_blocks() missing 1 required positional argument: 'block_size'",
+        "Reversibility test failed: ReorderingOperations.deinterleave_blocks() missing 1 required positional argument: 'block_size'",
+        "All edge cases failed"
+      ],
+      "warnings": [
+        "Edge case failed: ReorderingOperations.deinterleave_blocks() missing 1 required positional argument: 'block_size'...",
+        "Edge case failed: ReorderingOperations.deinterleave_blocks() missing 1 required positional argument: 'block_size'...",
+        "Edge case failed: ReorderingOperations.deinterleave_blocks() missing 1 required positional argument: 'block_size'...",
+        "Edge case failed: ReorderingOperations.deinterleave_blocks() missing 1 required positional argument: 'block_size'...",
+        "Edge case failed: ReorderingOperations.deinterleave_blocks() missing 1 required positional argument: 'block_size'...",
+        "Edge case failed: ReorderingOperations.deinterleave_blocks() missing 1 required positional argument: 'block_size'..."
+      ],
+      "reversibility_test": false,
+      "parameter_validation": true,
+      "edge_case_handling": false,
+      "execution_time": 0.00012993812561035156
+    },
+    "delta_encode": {
+      "success": false,
+      "errors": [
+        "Operation function should accept at least 2 parameters"
+      ],
+      "warnings": [
+        "Operation accepted invalid input type: list",
+        "Operation accepted invalid input type: dict",
+        "Missing metadata field: reversible",
+        "Missing metadata field: original_size",
+        "Operation marked as non-reversible"
+      ],
+      "reversibility_test": false,
+      "parameter_validation": true,
+      "edge_case_handling": true,
+      "execution_time": 0.0005397796630859375
+    },
+    "delta_decode": {
+      "success": false,
+      "errors": [
+        "Operation function should accept at least 2 parameters"
+      ],
+      "warnings": [
+        "Operation accepted invalid input type: list",
+        "Operation accepted invalid input type: dict",
+        "Missing metadata field: reversible",
+        "Missing metadata field: original_size",
+        "Operation marked as non-reversible"
+      ],
+      "reversibility_test": false,
+      "parameter_validation": true,
+      "edge_case_handling": true,
+      "execution_time": 0.0006008148193359375
+    },
+    "adaptive_delta": {
+      "success": false,
+      "errors": [
+        "Operation function should accept at least 2 parameters"
+      ],
+      "warnings": [
+        "Operation accepted invalid input type: list",
+        "Operation accepted invalid input type: dict",
+        "Missing metadata field: reversible",
+        "Missing metadata field: original_size",
+        "Operation marked as non-reversible"
+      ],
+      "reversibility_test": false,
+      "parameter_validation": true,
+      "edge_case_handling": true,
+      "execution_time": 0.0005857944488525391
+    },
+    "predictive_delta": {
+      "success": false,
+      "errors": [
+        "Operation function should accept at least 2 parameters"
+      ],
+      "warnings": [
+        "Operation accepted invalid input type: list",
+        "Operation accepted invalid input type: dict",
+        "Missing metadata field: reversible",
+        "Missing metadata field: original_size",
+        "Operation marked as non-reversible"
+      ],
+      "reversibility_test": false,
+      "parameter_validation": true,
+      "edge_case_handling": true,
+      "execution_time": 0.0005261898040771484
+    },
+    "run_length_delta": {
+      "success": false,
+      "errors": [
+        "Operation function should accept at least 2 parameters"
+      ],
+      "warnings": [
+        "Operation accepted invalid input type: list",
+        "Operation accepted invalid input type: dict",
+        "Missing metadata field: reversible",
+        "Missing metadata field: original_size",
+        "Operation marked as non-reversible"
+      ],
+      "reversibility_test": false,
+      "parameter_validation": true,
+      "edge_case_handling": true,
+      "execution_time": 0.0005321502685546875
+    },
+    "differential_encode": {
+      "success": false,
+      "errors": [
+        "Operation function should accept at least 2 parameters"
+      ],
+      "warnings": [
+        "Operation accepted invalid input type: list",
+        "Operation accepted invalid input type: dict",
+        "Missing metadata field: reversible",
+        "Missing metadata field: original_size",
+        "Operation marked as non-reversible"
+      ],
+      "reversibility_test": false,
+      "parameter_validation": true,
+      "edge_case_handling": true,
+      "execution_time": 0.0005013942718505859
+    },
+    "cumulative_delta": {
+      "success": false,
+      "errors": [
+        "Operation function should accept at least 2 parameters"
+      ],
+      "warnings": [
+        "Operation accepted invalid input type: list",
+        "Operation accepted invalid input type: dict",
+        "Missing metadata field: reversible",
+        "Missing metadata field: original_size",
+        "Operation marked as non-reversible"
+      ],
+      "reversibility_test": false,
+      "parameter_validation": true,
+      "edge_case_handling": true,
+      "execution_time": 0.0005300045013427734
+    },
+    "zigzag_delta": {
+      "success": false,
+      "errors": [
+        "Operation function should accept at least 2 parameters"
+      ],
+      "warnings": [
+        "Operation accepted invalid input type: list",
+        "Operation accepted invalid input type: dict",
+        "Missing metadata field: reversible",
+        "Missing metadata field: original_size",
+        "Operation marked as non-reversible"
+      ],
+      "reversibility_test": false,
+      "parameter_validation": true,
+      "edge_case_handling": true,
+      "execution_time": 0.0005247592926025391
+    },
+    "block_delta": {
+      "success": false,
+      "errors": [
+        "Basic functionality test failed: DeltaOperations.block_delta() missing 1 required positional argument: 'block_size'",
+        "Reversibility test failed: DeltaOperations.block_delta() missing 1 required positional argument: 'block_size'",
+        "All edge cases failed"
+      ],
+      "warnings": [
+        "Edge case failed: DeltaOperations.block_delta() missing 1 required positional argument: 'block_size'...",
+        "Edge case failed: DeltaOperations.block_delta() missing 1 required positional argument: 'block_size'...",
+        "Edge case failed: DeltaOperations.block_delta() missing 1 required positional argument: 'block_size'...",
+        "Edge case failed: DeltaOperations.block_delta() missing 1 required positional argument: 'block_size'...",
+        "Edge case failed: DeltaOperations.block_delta() missing 1 required positional argument: 'block_size'...",
+        "Edge case failed: DeltaOperations.block_delta() missing 1 required positional argument: 'block_size'..."
+      ],
+      "reversibility_test": false,
+      "parameter_validation": true,
+      "edge_case_handling": false,
+      "execution_time": 0.0001552104949951172
+    },
+    "windowed_delta": {
+      "success": false,
+      "errors": [
+        "Basic functionality test failed: DeltaOperations.windowed_delta() missing 1 required positional argument: 'window_size'",
+        "Reversibility test failed: DeltaOperations.windowed_delta() missing 1 required positional argument: 'window_size'",
+        "All edge cases failed"
+      ],
+      "warnings": [
+        "Edge case failed: DeltaOperations.windowed_delta() missing 1 required positional argument: 'window_size'...",
+        "Edge case failed: DeltaOperations.windowed_delta() missing 1 required positional argument: 'window_size'...",
+        "Edge case failed: DeltaOperations.windowed_delta() missing 1 required positional argument: 'window_size'...",
+        "Edge case failed: DeltaOperations.windowed_delta() missing 1 required positional argument: 'window_size'...",
+        "Edge case failed: DeltaOperations.windowed_delta() missing 1 required positional argument: 'window_size'...",
+        "Edge case failed: DeltaOperations.windowed_delta() missing 1 required positional argument: 'window_size'..."
+      ],
+      "reversibility_test": false,
+      "parameter_validation": true,
+      "edge_case_handling": false,
+      "execution_time": 0.0001633167266845703
+    },
+    "byte_substitution": {
+      "success": false,
+      "errors": [
+        "Basic functionality test failed: SubstitutionOperations.byte_substitution() missing 1 required positional argument: 'substitution_table'",
+        "Reversibility test failed: SubstitutionOperations.byte_substitution() missing 1 required positional argument: 'substitution_table'",
+        "All edge cases failed"
+      ],
+      "warnings": [
+        "Edge case failed: SubstitutionOperations.byte_substitution() missing 1 required positional argument: 'substitution_tab...",
+        "Edge case failed: SubstitutionOperations.byte_substitution() missing 1 required positional argument: 'substitution_tab...",
+        "Edge case failed: SubstitutionOperations.byte_substitution() missing 1 required positional argument: 'substitution_tab...",
+        "Edge case failed: SubstitutionOperations.byte_substitution() missing 1 required positional argument: 'substitution_tab...",
+        "Edge case failed: SubstitutionOperations.byte_substitution() missing 1 required positional argument: 'substitution_tab...",
+        "Edge case failed: SubstitutionOperations.byte_substitution() missing 1 required positional argument: 'substitution_tab..."
+      ],
+      "reversibility_test": false,
+      "parameter_validation": true,
+      "edge_case_handling": false,
+      "execution_time": 0.0001373291015625
+    },
+    "sbox_substitution": {
+      "success": false,
+      "errors": [
+        "Operation function should accept at least 2 parameters"
+      ],
+      "warnings": [
+        "Operation accepted invalid input type: list",
+        "Operation accepted invalid input type: dict",
+        "Missing metadata field: reversible",
+        "Missing metadata field: original_size",
+        "Operation marked as non-reversible"
+      ],
+      "reversibility_test": false,
+      "parameter_validation": true,
+      "edge_case_handling": true,
+      "execution_time": 0.0004811286926269531
+    },
+    "caesar_cipher": {
+      "success": false,
+      "errors": [
+        "Basic functionality test failed: SubstitutionOperations.caesar_cipher() missing 1 required positional argument: 'shift'",
+        "Reversibility test failed: SubstitutionOperations.caesar_cipher() missing 1 required positional argument: 'shift'",
+        "All edge cases failed"
+      ],
+      "warnings": [
+        "Edge case failed: SubstitutionOperations.caesar_cipher() missing 1 required positional argument: 'shift'...",
+        "Edge case failed: SubstitutionOperations.caesar_cipher() missing 1 required positional argument: 'shift'...",
+        "Edge case failed: SubstitutionOperations.caesar_cipher() missing 1 required positional argument: 'shift'...",
+        "Edge case failed: SubstitutionOperations.caesar_cipher() missing 1 required positional argument: 'shift'...",
+        "Edge case failed: SubstitutionOperations.caesar_cipher() missing 1 required positional argument: 'shift'...",
+        "Edge case failed: SubstitutionOperations.caesar_cipher() missing 1 required positional argument: 'shift'..."
+      ],
+      "reversibility_test": false,
+      "parameter_validation": true,
+      "edge_case_handling": false,
+      "execution_time": 0.00014495849609375
+    },
+    "affine_transform": {
+      "success": false,
+      "errors": [
+        "Basic functionality test failed: SubstitutionOperations.affine_transform() missing 2 required positional arguments: 'a' and 'b'",
+        "Reversibility test failed: SubstitutionOperations.affine_transform() missing 2 required positional arguments: 'a' and 'b'",
+        "All edge cases failed"
+      ],
+      "warnings": [
+        "Edge case failed: SubstitutionOperations.affine_transform() missing 2 required positional arguments: 'a' and 'b'...",
+        "Edge case failed: SubstitutionOperations.affine_transform() missing 2 required positional arguments: 'a' and 'b'...",
+        "Edge case failed: SubstitutionOperations.affine_transform() missing 2 required positional arguments: 'a' and 'b'...",
+        "Edge case failed: SubstitutionOperations.affine_transform() missing 2 required positional arguments: 'a' and 'b'...",
+        "Edge case failed: SubstitutionOperations.affine_transform() missing 2 required positional arguments: 'a' and 'b'...",
+        "Edge case failed: SubstitutionOperations.affine_transform() missing 2 required positional arguments: 'a' and 'b'..."
+      ],
+      "reversibility_test": false,
+      "parameter_validation": true,
+      "edge_case_handling": false,
+      "execution_time": 0.0001366138458251953
+    },
+    "vigenere_cipher": {
+      "success": false,
+      "errors": [
+        "Basic functionality test failed: SubstitutionOperations.vigenere_cipher() missing 1 required positional argument: 'key'",
+        "Reversibility test failed: SubstitutionOperations.vigenere_cipher() missing 1 required positional argument: 'key'",
+        "All edge cases failed"
+      ],
+      "warnings": [
+        "Edge case failed: SubstitutionOperations.vigenere_cipher() missing 1 required positional argument: 'key'...",
+        "Edge case failed: SubstitutionOperations.vigenere_cipher() missing 1 required positional argument: 'key'...",
+        "Edge case failed: SubstitutionOperations.vigenere_cipher() missing 1 required positional argument: 'key'...",
+        "Edge case failed: SubstitutionOperations.vigenere_cipher() missing 1 required positional argument: 'key'...",
+        "Edge case failed: SubstitutionOperations.vigenere_cipher() missing 1 required positional argument: 'key'...",
+        "Edge case failed: SubstitutionOperations.vigenere_cipher() missing 1 required positional argument: 'key'..."
+      ],
+      "reversibility_test": false,
+      "parameter_validation": true,
+      "edge_case_handling": false,
+      "execution_time": 0.00012731552124023438
+    },
+    "lookup_table": {
+      "success": false,
+      "errors": [
+        "Basic functionality test failed: SubstitutionOperations.lookup_table() missing 1 required positional argument: 'table'",
+        "Reversibility test failed: SubstitutionOperations.lookup_table() missing 1 required positional argument: 'table'",
+        "All edge cases failed"
+      ],
+      "warnings": [
+        "Edge case failed: SubstitutionOperations.lookup_table() missing 1 required positional argument: 'table'...",
+        "Edge case failed: SubstitutionOperations.lookup_table() missing 1 required positional argument: 'table'...",
+        "Edge case failed: SubstitutionOperations.lookup_table() missing 1 required positional argument: 'table'...",
+        "Edge case failed: SubstitutionOperations.lookup_table() missing 1 required positional argument: 'table'...",
+        "Edge case failed: SubstitutionOperations.lookup_table() missing 1 required positional argument: 'table'...",
+        "Edge case failed: SubstitutionOperations.lookup_table() missing 1 required positional argument: 'table'..."
+      ],
+      "reversibility_test": false,
+      "parameter_validation": true,
+      "edge_case_handling": false,
+      "execution_time": 0.0001277923583984375
+    },
+    "byte_swap_pairs": {
+      "success": false,
+      "errors": [
+        "Basic functionality test failed: SubstitutionOperations.byte_swap_pairs() missing 1 required positional argument: 'swap_pairs'",
+        "Reversibility test failed: SubstitutionOperations.byte_swap_pairs() missing 1 required positional argument: 'swap_pairs'",
+        "All edge cases failed"
+      ],
+      "warnings": [
+        "Edge case failed: SubstitutionOperations.byte_swap_pairs() missing 1 required positional argument: 'swap_pairs'...",
+        "Edge case failed: SubstitutionOperations.byte_swap_pairs() missing 1 required positional argument: 'swap_pairs'...",
+        "Edge case failed: SubstitutionOperations.byte_swap_pairs() missing 1 required positional argument: 'swap_pairs'...",
+        "Edge case failed: SubstitutionOperations.byte_swap_pairs() missing 1 required positional argument: 'swap_pairs'...",
+        "Edge case failed: SubstitutionOperations.byte_swap_pairs() missing 1 required positional argument: 'swap_pairs'...",
+        "Edge case failed: SubstitutionOperations.byte_swap_pairs() missing 1 required positional argument: 'swap_pairs'..."
+      ],
+      "reversibility_test": false,
+      "parameter_validation": true,
+      "edge_case_handling": false,
+      "execution_time": 0.00012636184692382812
+    },
+    "bit_substitution": {
+      "success": false,
+      "errors": [
+        "Operation function should accept at least 2 parameters"
+      ],
+      "warnings": [
+        "Operation accepted invalid input type: NoneType",
+        "Operation accepted invalid input type: str",
+        "Operation accepted invalid input type: int",
+        "Operation accepted invalid input type: list",
+        "Operation accepted invalid input type: dict",
+        "Missing metadata field: reversible",
+        "Missing metadata field: original_size",
+        "Operation marked as non-reversible"
+      ],
+      "reversibility_test": false,
+      "parameter_validation": true,
+      "edge_case_handling": true,
+      "execution_time": 0.0001232624053955078
+    },
+    "nibble_substitution": {
+      "success": false,
+      "errors": [
+        "Operation function should accept at least 2 parameters"
+      ],
+      "warnings": [
+        "Operation accepted invalid input type: NoneType",
+        "Operation accepted invalid input type: str",
+        "Operation accepted invalid input type: int",
+        "Operation accepted invalid input type: list",
+        "Operation accepted invalid input type: dict",
+        "Missing metadata field: reversible",
+        "Missing metadata field: original_size",
+        "Operation marked as non-reversible"
+      ],
+      "reversibility_test": false,
+      "parameter_validation": true,
+      "edge_case_handling": true,
+      "execution_time": 0.00012159347534179688
+    },
+    "custom_sbox": {
+      "success": false,
+      "errors": [
+        "Basic functionality test failed: SubstitutionOperations.custom_sbox() missing 1 required positional argument: 'sbox'",
+        "Reversibility test failed: SubstitutionOperations.custom_sbox() missing 1 required positional argument: 'sbox'",
+        "All edge cases failed"
+      ],
+      "warnings": [
+        "Edge case failed: SubstitutionOperations.custom_sbox() missing 1 required positional argument: 'sbox'...",
+        "Edge case failed: SubstitutionOperations.custom_sbox() missing 1 required positional argument: 'sbox'...",
+        "Edge case failed: SubstitutionOperations.custom_sbox() missing 1 required positional argument: 'sbox'...",
+        "Edge case failed: SubstitutionOperations.custom_sbox() missing 1 required positional argument: 'sbox'...",
+        "Edge case failed: SubstitutionOperations.custom_sbox() missing 1 required positional argument: 'sbox'...",
+        "Edge case failed: SubstitutionOperations.custom_sbox() missing 1 required positional argument: 'sbox'..."
+      ],
+      "reversibility_test": false,
+      "parameter_validation": true,
+      "edge_case_handling": false,
+      "execution_time": 0.00012540817260742188
+    },
+    "dynamic_substitution": {
+      "success": false,
+      "errors": [
+        "Operation function should accept at least 2 parameters"
+      ],
+      "warnings": [
+        "Operation accepted invalid input type: NoneType",
+        "Operation accepted invalid input type: str",
+        "Operation accepted invalid input type: int",
+        "Operation accepted invalid input type: list",
+        "Operation accepted invalid input type: dict",
+        "Missing metadata field: reversible",
+        "Missing metadata field: original_size",
+        "Operation marked as non-reversible"
+      ],
+      "reversibility_test": false,
+      "parameter_validation": true,
+      "edge_case_handling": true,
+      "execution_time": 0.00012111663818359375
+    },
+    "frequency_substitution": {
+      "success": false,
+      "errors": [
+        "Operation function should accept at least 2 parameters"
+      ],
+      "warnings": [
+        "Operation accepted invalid input type: NoneType",
+        "Operation accepted invalid input type: str",
+        "Operation accepted invalid input type: int",
+        "Operation accepted invalid input type: list",
+        "Operation accepted invalid input type: dict",
+        "Missing metadata field: original_size",
+        "Operation marked as non-reversible"
+      ],
+      "reversibility_test": false,
+      "parameter_validation": true,
+      "edge_case_handling": true,
+      "execution_time": 0.00011897087097167969
+    },
+    "polynomial_substitution": {
+      "success": false,
+      "errors": [
+        "Basic functionality test failed: SubstitutionOperations.polynomial_substitution() missing 1 required positional argument: 'coefficients'",
+        "Reversibility test failed: SubstitutionOperations.polynomial_substitution() missing 1 required positional argument: 'coefficients'",
+        "All edge cases failed"
+      ],
+      "warnings": [
+        "Edge case failed: SubstitutionOperations.polynomial_substitution() missing 1 required positional argument: 'coefficien...",
+        "Edge case failed: SubstitutionOperations.polynomial_substitution() missing 1 required positional argument: 'coefficien...",
+        "Edge case failed: SubstitutionOperations.polynomial_substitution() missing 1 required positional argument: 'coefficien...",
+        "Edge case failed: SubstitutionOperations.polynomial_substitution() missing 1 required positional argument: 'coefficien...",
+        "Edge case failed: SubstitutionOperations.polynomial_substitution() missing 1 required positional argument: 'coefficien...",
+        "Edge case failed: SubstitutionOperations.polynomial_substitution() missing 1 required positional argument: 'coefficien..."
+      ],
+      "reversibility_test": false,
+      "parameter_validation": true,
+      "edge_case_handling": false,
+      "execution_time": 0.0001308917999267578
+    },
+    "xor_key": {
+      "success": false,
+      "errors": [
+        "Basic functionality test failed: SubstitutionOperations.xor_key() missing 1 required positional argument: 'key'",
+        "Reversibility test failed: SubstitutionOperations.xor_key() missing 1 required positional argument: 'key'",
+        "All edge cases failed"
+      ],
+      "warnings": [
+        "Edge case failed: SubstitutionOperations.xor_key() missing 1 required positional argument: 'key'...",
+        "Edge case failed: SubstitutionOperations.xor_key() missing 1 required positional argument: 'key'...",
+        "Edge case failed: SubstitutionOperations.xor_key() missing 1 required positional argument: 'key'...",
+        "Edge case failed: SubstitutionOperations.xor_key() missing 1 required positional argument: 'key'...",
+        "Edge case failed: SubstitutionOperations.xor_key() missing 1 required positional argument: 'key'...",
+        "Edge case failed: SubstitutionOperations.xor_key() missing 1 required positional argument: 'key'..."
+      ],
+      "reversibility_test": false,
+      "parameter_validation": true,
+      "edge_case_handling": false,
+      "execution_time": 0.00013971328735351562
+    },
+    "additive_key": {
+      "success": false,
+      "errors": [
+        "Basic functionality test failed: SubstitutionOperations.additive_key() missing 1 required positional argument: 'key'",
+        "Reversibility test failed: SubstitutionOperations.additive_key() missing 1 required positional argument: 'key'",
+        "All edge cases failed"
+      ],
+      "warnings": [
+        "Edge case failed: SubstitutionOperations.additive_key() missing 1 required positional argument: 'key'...",
+        "Edge case failed: SubstitutionOperations.additive_key() missing 1 required positional argument: 'key'...",
+        "Edge case failed: SubstitutionOperations.additive_key() missing 1 required positional argument: 'key'...",
+        "Edge case failed: SubstitutionOperations.additive_key() missing 1 required positional argument: 'key'...",
+        "Edge case failed: SubstitutionOperations.additive_key() missing 1 required positional argument: 'key'...",
+        "Edge case failed: SubstitutionOperations.additive_key() missing 1 required positional argument: 'key'..."
+      ],
+      "reversibility_test": false,
+      "parameter_validation": true,
+      "edge_case_handling": false,
+      "execution_time": 0.00012874603271484375
+    },
+    "multiplicative_key": {
+      "success": false,
+      "errors": [
+        "Basic functionality test failed: SubstitutionOperations.multiplicative_key() missing 1 required positional argument: 'key'",
+        "Reversibility test failed: SubstitutionOperations.multiplicative_key() missing 1 required positional argument: 'key'",
+        "All edge cases failed"
+      ],
+      "warnings": [
+        "Edge case failed: SubstitutionOperations.multiplicative_key() missing 1 required positional argument: 'key'...",
+        "Edge case failed: SubstitutionOperations.multiplicative_key() missing 1 required positional argument: 'key'...",
+        "Edge case failed: SubstitutionOperations.multiplicative_key() missing 1 required positional argument: 'key'...",
+        "Edge case failed: SubstitutionOperations.multiplicative_key() missing 1 required positional argument: 'key'...",
+        "Edge case failed: SubstitutionOperations.multiplicative_key() missing 1 required positional argument: 'key'...",
+        "Edge case failed: SubstitutionOperations.multiplicative_key() missing 1 required positional argument: 'key'..."
+      ],
+      "reversibility_test": false,
+      "parameter_validation": true,
+      "edge_case_handling": false,
+      "execution_time": 0.0001251697540283203
+    },
+    "rotating_key": {
+      "success": false,
+      "errors": [
+        "Basic functionality test failed: SubstitutionOperations.rotating_key() missing 1 required positional argument: 'key'",
+        "Reversibility test failed: SubstitutionOperations.rotating_key() missing 1 required positional argument: 'key'",
+        "All edge cases failed"
+      ],
+      "warnings": [
+        "Edge case failed: SubstitutionOperations.rotating_key() missing 1 required positional argument: 'key'...",
+        "Edge case failed: SubstitutionOperations.rotating_key() missing 1 required positional argument: 'key'...",
+        "Edge case failed: SubstitutionOperations.rotating_key() missing 1 required positional argument: 'key'...",
+        "Edge case failed: SubstitutionOperations.rotating_key() missing 1 required positional argument: 'key'...",
+        "Edge case failed: SubstitutionOperations.rotating_key() missing 1 required positional argument: 'key'...",
+        "Edge case failed: SubstitutionOperations.rotating_key() missing 1 required positional argument: 'key'..."
+      ],
+      "reversibility_test": false,
+      "parameter_validation": true,
+      "edge_case_handling": false,
+      "execution_time": 0.00012564659118652344
+    },
+    "feistel_network": {
+      "success": false,
+      "errors": [
+        "Basic functionality test failed: SubstitutionOperations.feistel_network() missing 1 required positional argument: 'rounds'",
+        "Reversibility test failed: SubstitutionOperations.feistel_network() missing 1 required positional argument: 'rounds'",
+        "All edge cases failed"
+      ],
+      "warnings": [
+        "Edge case failed: SubstitutionOperations.feistel_network() missing 1 required positional argument: 'rounds'...",
+        "Edge case failed: SubstitutionOperations.feistel_network() missing 1 required positional argument: 'rounds'...",
+        "Edge case failed: SubstitutionOperations.feistel_network() missing 1 required positional argument: 'rounds'...",
+        "Edge case failed: SubstitutionOperations.feistel_network() missing 1 required positional argument: 'rounds'...",
+        "Edge case failed: SubstitutionOperations.feistel_network() missing 1 required positional argument: 'rounds'...",
+        "Edge case failed: SubstitutionOperations.feistel_network() missing 1 required positional argument: 'rounds'..."
+      ],
+      "reversibility_test": false,
+      "parameter_validation": true,
+      "edge_case_handling": false,
+      "execution_time": 0.00012493133544921875
+    },
+    "spn_substitution": {
+      "success": false,
+      "errors": [
+        "Basic functionality test failed: SubstitutionOperations.spn_substitution() missing 1 required positional argument: 'rounds'",
+        "Reversibility test failed: SubstitutionOperations.spn_substitution() missing 1 required positional argument: 'rounds'",
+        "All edge cases failed"
+      ],
+      "warnings": [
+        "Edge case failed: SubstitutionOperations.spn_substitution() missing 1 required positional argument: 'rounds'...",
+        "Edge case failed: SubstitutionOperations.spn_substitution() missing 1 required positional argument: 'rounds'...",
+        "Edge case failed: SubstitutionOperations.spn_substitution() missing 1 required positional argument: 'rounds'...",
+        "Edge case failed: SubstitutionOperations.spn_substitution() missing 1 required positional argument: 'rounds'...",
+        "Edge case failed: SubstitutionOperations.spn_substitution() missing 1 required positional argument: 'rounds'...",
+        "Edge case failed: SubstitutionOperations.spn_substitution() missing 1 required positional argument: 'rounds'..."
+      ],
+      "reversibility_test": false,
+      "parameter_validation": true,
+      "edge_case_handling": false,
+      "execution_time": 0.00012493133544921875
+    },
+    "huffman_substitution": {
+      "success": false,
+      "errors": [
+        "Operation function should accept at least 2 parameters"
+      ],
+      "warnings": [
+        "Operation accepted invalid input type: NoneType",
+        "Operation accepted invalid input type: str",
+        "Operation accepted invalid input type: int",
+        "Operation accepted invalid input type: list",
+        "Operation accepted invalid input type: dict",
+        "Missing metadata field: original_size",
+        "Operation marked as non-reversible"
+      ],
+      "reversibility_test": false,
+      "parameter_validation": true,
+      "edge_case_handling": true,
+      "execution_time": 0.00012159347534179688
+    },
+    "burrows_wheeler": {
+      "success": false,
+      "errors": [
+        "Operation function should accept at least 2 parameters"
+      ],
+      "warnings": [
+        "Operation accepted invalid input type: list",
+        "Operation accepted invalid input type: dict",
+        "Missing metadata field: reversible",
+        "Missing metadata field: original_size",
+        "Operation marked as non-reversible"
+      ],
+      "reversibility_test": false,
+      "parameter_validation": true,
+      "edge_case_handling": true,
+      "execution_time": 0.0016257762908935547
+    },
+    "burrows_wheeler_inverse": {
+      "success": false,
+      "errors": [
+        "Operation function should accept at least 2 parameters",
+        "Basic functionality test failed: unsupported operand type(s) for +: 'int' and 'str'",
+        "Reversibility test failed: unsupported operand type(s) for +: 'int' and 'str'"
+      ],
+      "warnings": [
+        "Operation accepted invalid input type: list",
+        "Operation accepted invalid input type: dict",
+        "Edge case failed: unsupported operand type(s) for +: 'int' and 'str'...",
+        "Edge case failed: unsupported operand type(s) for +: 'int' and 'str'...",
+        "Edge case failed: unsupported operand type(s) for +: 'int' and 'str'..."
+      ],
+      "reversibility_test": false,
+      "parameter_validation": true,
+      "edge_case_handling": false,
+      "execution_time": 0.00018262863159179688
+    },
+    "bitplane_extract": {
+      "success": false,
+      "errors": [
+        "Basic functionality test failed: TransformOperations.bitplane_extract() missing 1 required positional argument: 'plane'",
+        "Reversibility test failed: TransformOperations.bitplane_extract() missing 1 required positional argument: 'plane'",
+        "All edge cases failed"
+      ],
+      "warnings": [
+        "Edge case failed: TransformOperations.bitplane_extract() missing 1 required positional argument: 'plane'...",
+        "Edge case failed: TransformOperations.bitplane_extract() missing 1 required positional argument: 'plane'...",
+        "Edge case failed: TransformOperations.bitplane_extract() missing 1 required positional argument: 'plane'...",
+        "Edge case failed: TransformOperations.bitplane_extract() missing 1 required positional argument: 'plane'...",
+        "Edge case failed: TransformOperations.bitplane_extract() missing 1 required positional argument: 'plane'...",
+        "Edge case failed: TransformOperations.bitplane_extract() missing 1 required positional argument: 'plane'..."
+      ],
+      "reversibility_test": false,
+      "parameter_validation": true,
+      "edge_case_handling": false,
+      "execution_time": 0.00014209747314453125
+    },
+    "bitplane_insert": {
+      "success": false,
+      "errors": [
+        "Basic functionality test failed: TransformOperations.bitplane_insert() missing 2 required positional arguments: 'plane' and 'data'",
+        "Reversibility test failed: TransformOperations.bitplane_insert() missing 2 required positional arguments: 'plane' and 'data'",
+        "All edge cases failed"
+      ],
+      "warnings": [
+        "Edge case failed: TransformOperations.bitplane_insert() missing 2 required positional arguments: 'plane' and 'data'...",
+        "Edge case failed: TransformOperations.bitplane_insert() missing 2 required positional arguments: 'plane' and 'data'...",
+        "Edge case failed: TransformOperations.bitplane_insert() missing 2 required positional arguments: 'plane' and 'data'...",
+        "Edge case failed: TransformOperations.bitplane_insert() missing 2 required positional arguments: 'plane' and 'data'...",
+        "Edge case failed: TransformOperations.bitplane_insert() missing 2 required positional arguments: 'plane' and 'data'...",
+        "Edge case failed: TransformOperations.bitplane_insert() missing 2 required positional arguments: 'plane' and 'data'..."
+      ],
+      "reversibility_test": false,
+      "parameter_validation": true,
+      "edge_case_handling": false,
+      "execution_time": 0.00013756752014160156
+    },
+    "dct_transform": {
+      "success": false,
+      "errors": [
+        "Operation function should accept at least 2 parameters",
+        "Unexpected error with invalid input NoneType: No module named 'numpy'",
+        "Unexpected error with invalid input str: No module named 'numpy'",
+        "Unexpected error with invalid input int: No module named 'numpy'",
+        "Unexpected error with invalid input list: No module named 'numpy'",
+        "Unexpected error with invalid input dict: No module named 'numpy'",
+        "Basic functionality test failed: No module named 'numpy'",
+        "Reversibility test failed: No module named 'numpy'",
+        "All edge cases failed"
+      ],
+      "warnings": [
+        "Edge case failed: No module named 'numpy'...",
+        "Edge case failed: No module named 'numpy'...",
+        "Edge case failed: No module named 'numpy'...",
+        "Edge case failed: No module named 'numpy'...",
+        "Edge case failed: No module named 'numpy'...",
+        "Edge case failed: No module named 'numpy'..."
+      ],
+      "reversibility_test": false,
+      "parameter_validation": true,
+      "edge_case_handling": false,
+      "execution_time": 0.0028645992279052734
+    },
+    "dwt_transform": {
+      "success": false,
+      "errors": [
+        "Operation function should accept at least 2 parameters",
+        "Unexpected error with invalid input NoneType: No module named 'numpy'",
+        "Unexpected error with invalid input str: No module named 'numpy'",
+        "Unexpected error with invalid input int: No module named 'numpy'",
+        "Unexpected error with invalid input list: No module named 'numpy'",
+        "Unexpected error with invalid input dict: No module named 'numpy'",
+        "Basic functionality test failed: No module named 'numpy'",
+        "Reversibility test failed: No module named 'numpy'",
+        "All edge cases failed"
+      ],
+      "warnings": [
+        "Edge case failed: No module named 'numpy'...",
+        "Edge case failed: No module named 'numpy'...",
+        "Edge case failed: No module named 'numpy'...",
+        "Edge case failed: No module named 'numpy'...",
+        "Edge case failed: No module named 'numpy'...",
+        "Edge case failed: No module named 'numpy'..."
+      ],
+      "reversibility_test": false,
+      "parameter_validation": true,
+      "edge_case_handling": false,
+      "execution_time": 0.0027408599853515625
+    },
+    "fft_transform": {
+      "success": false,
+      "errors": [
+        "Operation function should accept at least 2 parameters",
+        "Reversibility test failed: TransformOperations._simple_fft_transform.<locals>.inverse() takes 0 positional arguments but 1 was given"
+      ],
+      "warnings": [
+        "Operation accepted invalid input type: NoneType",
+        "Operation accepted invalid input type: list",
+        "Operation accepted invalid input type: dict",
+        "Missing metadata field: original_size",
+        "Edge case failed: division by zero...",
+        "Edge case failed: division by zero..."
+      ],
+      "reversibility_test": false,
+      "parameter_validation": true,
+      "edge_case_handling": false,
+      "execution_time": 0.07533979415893555
+    },
+    "walsh_hadamard": {
+      "success": false,
+      "errors": [
+        "Operation function should accept at least 2 parameters",
+        "Unexpected error with invalid input NoneType: No module named 'numpy'",
+        "Unexpected error with invalid input str: No module named 'numpy'",
+        "Unexpected error with invalid input int: No module named 'numpy'",
+        "Unexpected error with invalid input list: No module named 'numpy'",
+        "Unexpected error with invalid input dict: No module named 'numpy'",
+        "Basic functionality test failed: No module named 'numpy'",
+        "Reversibility test failed: No module named 'numpy'",
+        "All edge cases failed"
+      ],
+      "warnings": [
+        "Edge case failed: No module named 'numpy'...",
+        "Edge case failed: No module named 'numpy'...",
+        "Edge case failed: No module named 'numpy'...",
+        "Edge case failed: No module named 'numpy'...",
+        "Edge case failed: No module named 'numpy'...",
+        "Edge case failed: No module named 'numpy'..."
+      ],
+      "reversibility_test": false,
+      "parameter_validation": true,
+      "edge_case_handling": false,
+      "execution_time": 0.0015797615051269531
+    },
+    "huffman_encode": {
+      "success": false,
+      "errors": [
+        "Operation function should accept at least 2 parameters",
+        "Basic functionality test failed: _heapq.heapify() takes no keyword arguments",
+        "Reversibility test failed: _heapq.heapify() takes no keyword arguments"
+      ],
+      "warnings": [
+        "Operation accepted invalid input type: NoneType",
+        "Operation accepted invalid input type: list",
+        "Operation accepted invalid input type: dict",
+        "Edge case failed: _heapq.heapify() takes no keyword arguments..."
+      ],
+      "reversibility_test": false,
+      "parameter_validation": true,
+      "edge_case_handling": true,
+      "execution_time": 0.005337715148925781
+    },
+    "run_length_encode": {
+      "success": false,
+      "errors": [
+        "Operation function should accept at least 2 parameters",
+        "Reversibility test failed: TransformOperations.run_length_encode.<locals>.inverse() takes 0 positional arguments but 1 was given"
+      ],
+      "warnings": [
+        "Operation accepted invalid input type: NoneType",
+        "Operation accepted invalid input type: list",
+        "Operation accepted invalid input type: dict",
+        "Missing metadata field: original_size"
+      ],
+      "reversibility_test": false,
+      "parameter_validation": true,
+      "edge_case_handling": true,
+      "execution_time": 0.0005400180816650391
+    },
+    "arithmetic_encode": {
+      "success": false,
+      "errors": [
+        "Operation function should accept at least 2 parameters",
+        "Basic functionality test failed: name 'new_data' is not defined",
+        "Reversibility test failed: name 'new_data' is not defined"
+      ],
+      "warnings": [
+        "Operation accepted invalid input type: NoneType",
+        "Operation accepted invalid input type: list",
+        "Operation accepted invalid input type: dict",
+        "Edge case failed: name 'new_data' is not defined...",
+        "Edge case failed: name 'new_data' is not defined...",
+        "Edge case failed: name 'new_data' is not defined...",
+        "Edge case failed: name 'new_data' is not defined...",
+        "Edge case failed: name 'new_data' is not defined..."
+      ],
+      "reversibility_test": false,
+      "parameter_validation": true,
+      "edge_case_handling": false,
+      "execution_time": 0.0060024261474609375
+    },
+    "lz77_encode": {
+      "success": false,
+      "errors": [
+        "Operation function should accept at least 2 parameters",
+        "Reversibility test failed: TransformOperations.lz77_encode.<locals>.inverse() takes 0 positional arguments but 1 was given"
+      ],
+      "warnings": [
+        "Operation accepted invalid input type: NoneType",
+        "Operation accepted invalid input type: list",
+        "Operation accepted invalid input type: dict",
+        "Missing metadata field: original_size"
+      ],
+      "reversibility_test": false,
+      "parameter_validation": true,
+      "edge_case_handling": true,
+      "execution_time": 0.1653590202331543
+    },
+    "move_to_front": {
+      "success": false,
+      "errors": [
+        "Operation function should accept at least 2 parameters"
+      ],
+      "warnings": [
+        "Operation accepted invalid input type: list",
+        "Operation accepted invalid input type: dict",
+        "Missing metadata field: reversible",
+        "Missing metadata field: original_size",
+        "Operation marked as non-reversible"
+      ],
+      "reversibility_test": false,
+      "parameter_validation": true,
+      "edge_case_handling": true,
+      "execution_time": 0.0016989707946777344
+    },
+    "distance_coding": {
+      "success": false,
+      "errors": [
+        "Operation function should accept at least 2 parameters"
+      ],
+      "warnings": [
+        "Operation accepted invalid input type: list",
+        "Operation accepted invalid input type: dict",
+        "Missing metadata field: reversible",
+        "Missing metadata field: original_size",
+        "Operation marked as non-reversible"
+      ],
+      "reversibility_test": false,
+      "parameter_validation": true,
+      "edge_case_handling": true,
+      "execution_time": 0.0012404918670654297
+    },
+    "elias_gamma": {
+      "success": false,
+      "errors": [
+        "Operation function should accept at least 2 parameters",
+        "Reversibility test failed: TransformOperations.elias_gamma.<locals>.inverse() takes 0 positional arguments but 1 was given"
+      ],
+      "warnings": [
+        "Operation accepted invalid input type: NoneType",
+        "Operation accepted invalid input type: list",
+        "Operation accepted invalid input type: dict",
+        "Missing metadata field: original_size"
+      ],
+      "reversibility_test": false,
+      "parameter_validation": true,
+      "edge_case_handling": true,
+      "execution_time": 0.006605863571166992
+    },
+    "elias_delta": {
+      "success": false,
+      "errors": [
+        "Operation function should accept at least 2 parameters",
+        "Reversibility test failed: TransformOperations.elias_delta.<locals>.inverse() takes 0 positional arguments but 1 was given"
+      ],
+      "warnings": [
+        "Operation accepted invalid input type: NoneType",
+        "Operation accepted invalid input type: list",
+        "Operation accepted invalid input type: dict",
+        "Missing metadata field: original_size"
+      ],
+      "reversibility_test": false,
+      "parameter_validation": true,
+      "edge_case_handling": true,
+      "execution_time": 0.010417461395263672
+    },
+    "golomb_coding": {
+      "success": false,
+      "errors": [
+        "Reversibility test failed: TransformOperations.golomb_coding.<locals>.inverse() takes 0 positional arguments but 1 was given"
+      ],
+      "warnings": [
+        "Operation accepted invalid input type: NoneType",
+        "Operation accepted invalid input type: list",
+        "Operation accepted invalid input type: dict",
+        "Missing metadata field: original_size"
+      ],
+      "reversibility_test": false,
+      "parameter_validation": true,
+      "edge_case_handling": true,
+      "execution_time": 0.018021821975708008
+    },
+    "fibonacci_coding": {
+      "success": false,
+      "errors": [
+        "Operation function should accept at least 2 parameters",
+        "Reversibility test failed: TransformOperations.fibonacci_coding.<locals>.inverse() takes 0 positional arguments but 1 was given"
+      ],
+      "warnings": [
+        "Operation accepted invalid input type: NoneType",
+        "Operation accepted invalid input type: list",
+        "Operation accepted invalid input type: dict",
+        "Missing metadata field: original_size"
+      ],
+      "reversibility_test": false,
+      "parameter_validation": true,
+      "edge_case_handling": true,
+      "execution_time": 0.009372949600219727
+    },
+    "phase_in_coding": {
+      "success": false,
+      "errors": [
+        "Operation function should accept at least 2 parameters",
+        "Reversibility test failed: TransformOperations.phase_in_coding.<locals>.inverse() takes 0 positional arguments but 1 was given"
+      ],
+      "warnings": [
+        "Operation accepted invalid input type: NoneType",
+        "Operation accepted invalid input type: str",
+        "Operation accepted invalid input type: list",
+        "Operation accepted invalid input type: dict",
+        "Missing metadata field: original_size"
+      ],
+      "reversibility_test": false,
+      "parameter_validation": true,
+      "edge_case_handling": true,
+      "execution_time": 0.004144906997680664
+    },
+    "adaptive_huffman": {
+      "success": false,
+      "errors": [
+        "Operation function should accept at least 2 parameters",
+        "Reversibility test failed: TransformOperations.adaptive_huffman.<locals>.inverse() takes 0 positional arguments but 1 was given"
+      ],
+      "warnings": [
+        "Operation accepted invalid input type: NoneType",
+        "Operation accepted invalid input type: list",
+        "Operation accepted invalid input type: dict",
+        "Missing metadata field: original_size"
+      ],
+      "reversibility_test": false,
+      "parameter_validation": true,
+      "edge_case_handling": true,
+      "execution_time": 0.06471538543701172
+    },
+    "custom_filter": {
+      "success": false,
+      "errors": [
+        "Basic functionality test failed: CustomOperations.custom_filter() missing 1 required positional argument: 'filter_function'",
+        "Reversibility test failed: CustomOperations.custom_filter() missing 1 required positional argument: 'filter_function'",
+        "All edge cases failed"
+      ],
+      "warnings": [
+        "Edge case failed: CustomOperations.custom_filter() missing 1 required positional argument: 'filter_function'...",
+        "Edge case failed: CustomOperations.custom_filter() missing 1 required positional argument: 'filter_function'...",
+        "Edge case failed: CustomOperations.custom_filter() missing 1 required positional argument: 'filter_function'...",
+        "Edge case failed: CustomOperations.custom_filter() missing 1 required positional argument: 'filter_function'...",
+        "Edge case failed: CustomOperations.custom_filter() missing 1 required positional argument: 'filter_function'...",
+        "Edge case failed: CustomOperations.custom_filter() missing 1 required positional argument: 'filter_function'..."
+      ],
+      "reversibility_test": false,
+      "parameter_validation": true,
+      "edge_case_handling": false,
+      "execution_time": 0.0002148151397705078
+    },
+    "pattern_replace": {
+      "success": false,
+      "errors": [
+        "Basic functionality test failed: CustomOperations.pattern_replace() missing 2 required positional arguments: 'pattern' and 'replacement'",
+        "Reversibility test failed: CustomOperations.pattern_replace() missing 2 required positional arguments: 'pattern' and 'replacement'",
+        "All edge cases failed"
+      ],
+      "warnings": [
+        "Edge case failed: CustomOperations.pattern_replace() missing 2 required positional arguments: 'pattern' and 'replaceme...",
+        "Edge case failed: CustomOperations.pattern_replace() missing 2 required positional arguments: 'pattern' and 'replaceme...",
+        "Edge case failed: CustomOperations.pattern_replace() missing 2 required positional arguments: 'pattern' and 'replaceme...",
+        "Edge case failed: CustomOperations.pattern_replace() missing 2 required positional arguments: 'pattern' and 'replaceme...",
+        "Edge case failed: CustomOperations.pattern_replace() missing 2 required positional arguments: 'pattern' and 'replaceme...",
+        "Edge case failed: CustomOperations.pattern_replace() missing 2 required positional arguments: 'pattern' and 'replaceme..."
+      ],
+      "reversibility_test": false,
+      "parameter_validation": true,
+      "edge_case_handling": false,
+      "execution_time": 0.00015807151794433594
+    },
+    "data_embedding": {
+      "success": false,
+      "errors": [
+        "Basic functionality test failed: CustomOperations.data_embedding() missing 1 required positional argument: 'embedded_data'",
+        "Reversibility test failed: CustomOperations.data_embedding() missing 1 required positional argument: 'embedded_data'",
+        "All edge cases failed"
+      ],
+      "warnings": [
+        "Edge case failed: CustomOperations.data_embedding() missing 1 required positional argument: 'embedded_data'...",
+        "Edge case failed: CustomOperations.data_embedding() missing 1 required positional argument: 'embedded_data'...",
+        "Edge case failed: CustomOperations.data_embedding() missing 1 required positional argument: 'embedded_data'...",
+        "Edge case failed: CustomOperations.data_embedding() missing 1 required positional argument: 'embedded_data'...",
+        "Edge case failed: CustomOperations.data_embedding() missing 1 required positional argument: 'embedded_data'...",
+        "Edge case failed: CustomOperations.data_embedding() missing 1 required positional argument: 'embedded_data'..."
+      ],
+      "reversibility_test": false,
+      "parameter_validation": true,
+      "edge_case_handling": false,
+      "execution_time": 0.00013589859008789062
+    },
+    "data_extraction": {
+      "success": false,
+      "errors": [
+        "Operation function should accept at least 2 parameters"
+      ],
+      "warnings": [
+        "Operation accepted invalid input type: NoneType",
+        "Operation accepted invalid input type: str",
+        "Operation accepted invalid input type: int",
+        "Operation accepted invalid input type: list",
+        "Operation accepted invalid input type: dict",
+        "Missing metadata field: original_size",
+        "Operation marked as non-reversible"
+      ],
+      "reversibility_test": false,
+      "parameter_validation": true,
+      "edge_case_handling": true,
+      "execution_time": 0.00012445449829101562
+    },
+    "checksum_add": {
+      "success": false,
+      "errors": [
+        "Basic functionality test failed: CustomOperations.checksum_add() missing 1 required positional argument: 'checksum_type'",
+        "Reversibility test failed: CustomOperations.checksum_add() missing 1 required positional argument: 'checksum_type'",
+        "All edge cases failed"
+      ],
+      "warnings": [
+        "Edge case failed: CustomOperations.checksum_add() missing 1 required positional argument: 'checksum_type'...",
+        "Edge case failed: CustomOperations.checksum_add() missing 1 required positional argument: 'checksum_type'...",
+        "Edge case failed: CustomOperations.checksum_add() missing 1 required positional argument: 'checksum_type'...",
+        "Edge case failed: CustomOperations.checksum_add() missing 1 required positional argument: 'checksum_type'...",
+        "Edge case failed: CustomOperations.checksum_add() missing 1 required positional argument: 'checksum_type'...",
+        "Edge case failed: CustomOperations.checksum_add() missing 1 required positional argument: 'checksum_type'..."
+      ],
+      "reversibility_test": false,
+      "parameter_validation": true,
+      "edge_case_handling": false,
+      "execution_time": 0.0001316070556640625
+    },
+    "checksum_verify": {
+      "success": false,
+      "errors": [
+        "Basic functionality test failed: CustomOperations.checksum_verify() missing 1 required positional argument: 'checksum_type'",
+        "Reversibility test failed: CustomOperations.checksum_verify() missing 1 required positional argument: 'checksum_type'",
+        "All edge cases failed"
+      ],
+      "warnings": [
+        "Edge case failed: CustomOperations.checksum_verify() missing 1 required positional argument: 'checksum_type'...",
+        "Edge case failed: CustomOperations.checksum_verify() missing 1 required positional argument: 'checksum_type'...",
+        "Edge case failed: CustomOperations.checksum_verify() missing 1 required positional argument: 'checksum_type'...",
+        "Edge case failed: CustomOperations.checksum_verify() missing 1 required positional argument: 'checksum_type'...",
+        "Edge case failed: CustomOperations.checksum_verify() missing 1 required positional argument: 'checksum_type'...",
+        "Edge case failed: CustomOperations.checksum_verify() missing 1 required positional argument: 'checksum_type'..."
+      ],
+      "reversibility_test": false,
+      "parameter_validation": true,
+      "edge_case_handling": false,
+      "execution_time": 0.0001399517059326172
+    },
+    "compression_custom": {
+      "success": false,
+      "errors": [
+        "Basic functionality test failed: CustomOperations.compression_custom() missing 1 required positional argument: 'algorithm'",
+        "Reversibility test failed: CustomOperations.compression_custom() missing 1 required positional argument: 'algorithm'",
+        "All edge cases failed"
+      ],
+      "warnings": [
+        "Edge case failed: CustomOperations.compression_custom() missing 1 required positional argument: 'algorithm'...",
+        "Edge case failed: CustomOperations.compression_custom() missing 1 required positional argument: 'algorithm'...",
+        "Edge case failed: CustomOperations.compression_custom() missing 1 required positional argument: 'algorithm'...",
+        "Edge case failed: CustomOperations.compression_custom() missing 1 required positional argument: 'algorithm'...",
+        "Edge case failed: CustomOperations.compression_custom() missing 1 required positional argument: 'algorithm'...",
+        "Edge case failed: CustomOperations.compression_custom() missing 1 required positional argument: 'algorithm'..."
+      ],
+      "reversibility_test": false,
+      "parameter_validation": true,
+      "edge_case_handling": false,
+      "execution_time": 0.00012993812561035156
+    },
+    "encryption_custom": {
+      "success": false,
+      "errors": [
+        "Basic functionality test failed: CustomOperations.encryption_custom() missing 2 required positional arguments: 'algorithm' and 'key'",
+        "Reversibility test failed: CustomOperations.encryption_custom() missing 2 required positional arguments: 'algorithm' and 'key'",
+        "All edge cases failed"
+      ],
+      "warnings": [
+        "Edge case failed: CustomOperations.encryption_custom() missing 2 required positional arguments: 'algorithm' and 'key'...",
+        "Edge case failed: CustomOperations.encryption_custom() missing 2 required positional arguments: 'algorithm' and 'key'...",
+        "Edge case failed: CustomOperations.encryption_custom() missing 2 required positional arguments: 'algorithm' and 'key'...",
+        "Edge case failed: CustomOperations.encryption_custom() missing 2 required positional arguments: 'algorithm' and 'key'...",
+        "Edge case failed: CustomOperations.encryption_custom() missing 2 required positional arguments: 'algorithm' and 'key'...",
+        "Edge case failed: CustomOperations.encryption_custom() missing 2 required positional arguments: 'algorithm' and 'key'..."
+      ],
+      "reversibility_test": false,
+      "parameter_validation": true,
+      "edge_case_handling": false,
+      "execution_time": 0.00013136863708496094
+    },
+    "hash_transform": {
+      "success": false,
+      "errors": [
+        "Basic functionality test failed: CustomOperations.hash_transform() missing 1 required positional argument: 'hash_function'",
+        "Reversibility test failed: CustomOperations.hash_transform() missing 1 required positional argument: 'hash_function'",
+        "All edge cases failed"
+      ],
+      "warnings": [
+        "Edge case failed: CustomOperations.hash_transform() missing 1 required positional argument: 'hash_function'...",
+        "Edge case failed: CustomOperations.hash_transform() missing 1 required positional argument: 'hash_function'...",
+        "Edge case failed: CustomOperations.hash_transform() missing 1 required positional argument: 'hash_function'...",
+        "Edge case failed: CustomOperations.hash_transform() missing 1 required positional argument: 'hash_function'...",
+        "Edge case failed: CustomOperations.hash_transform() missing 1 required positional argument: 'hash_function'...",
+        "Edge case failed: CustomOperations.hash_transform() missing 1 required positional argument: 'hash_function'..."
+      ],
+      "reversibility_test": false,
+      "parameter_validation": true,
+      "edge_case_handling": false,
+      "execution_time": 0.00012493133544921875
+    },
+    "error_correction": {
+      "success": false,
+      "errors": [
+        "Basic functionality test failed: CustomOperations.error_correction() missing 1 required positional argument: 'ecc_type'",
+        "Reversibility test failed: CustomOperations.error_correction() missing 1 required positional argument: 'ecc_type'",
+        "All edge cases failed"
+      ],
+      "warnings": [
+        "Edge case failed: CustomOperations.error_correction() missing 1 required positional argument: 'ecc_type'...",
+        "Edge case failed: CustomOperations.error_correction() missing 1 required positional argument: 'ecc_type'...",
+        "Edge case failed: CustomOperations.error_correction() missing 1 required positional argument: 'ecc_type'...",
+        "Edge case failed: CustomOperations.error_correction() missing 1 required positional argument: 'ecc_type'...",
+        "Edge case failed: CustomOperations.error_correction() missing 1 required positional argument: 'ecc_type'...",
+        "Edge case failed: CustomOperations.error_correction() missing 1 required positional argument: 'ecc_type'..."
+      ],
+      "reversibility_test": false,
+      "parameter_validation": true,
+      "edge_case_handling": false,
+      "execution_time": 0.00012493133544921875
+    },
+    "steganography_embed": {
+      "success": false,
+      "errors": [
+        "Basic functionality test failed: CustomOperations.steganography_embed() missing 1 required positional argument: 'hidden_data'",
+        "Reversibility test failed: CustomOperations.steganography_embed() missing 1 required positional argument: 'hidden_data'",
+        "All edge cases failed"
+      ],
+      "warnings": [
+        "Edge case failed: CustomOperations.steganography_embed() missing 1 required positional argument: 'hidden_data'...",
+        "Edge case failed: CustomOperations.steganography_embed() missing 1 required positional argument: 'hidden_data'...",
+        "Edge case failed: CustomOperations.steganography_embed() missing 1 required positional argument: 'hidden_data'...",
+        "Edge case failed: CustomOperations.steganography_embed() missing 1 required positional argument: 'hidden_data'...",
+        "Edge case failed: CustomOperations.steganography_embed() missing 1 required positional argument: 'hidden_data'...",
+        "Edge case failed: CustomOperations.steganography_embed() missing 1 required positional argument: 'hidden_data'..."
+      ],
+      "reversibility_test": false,
+      "parameter_validation": true,
+      "edge_case_handling": false,
+      "execution_time": 0.0001266002655029297
+    },
+    "steganography_extract": {
+      "success": false,
+      "errors": [
+        "Operation function should accept at least 2 parameters"
+      ],
+      "warnings": [
+        "Operation accepted invalid input type: NoneType",
+        "Operation accepted invalid input type: str",
+        "Operation accepted invalid input type: int",
+        "Operation accepted invalid input type: list",
+        "Operation accepted invalid input type: dict",
+        "Missing metadata field: original_size",
+        "Operation marked as non-reversible"
+      ],
+      "reversibility_test": false,
+      "parameter_validation": true,
+      "edge_case_handling": true,
+      "execution_time": 0.00012040138244628906
+    },
+    "dna_encoding": {
+      "success": false,
+      "errors": [
+        "Operation function should accept at least 2 parameters"
+      ],
+      "warnings": [
+        "Operation accepted invalid input type: list",
+        "Operation accepted invalid input type: dict",
+        "Missing metadata field: reversible",
+        "Missing metadata field: original_size",
+        "Operation marked as non-reversible"
+      ],
+      "reversibility_test": false,
+      "parameter_validation": true,
+      "edge_case_handling": true,
+      "execution_time": 0.002045869827270508
+    },
+    "dna_decoding": {
+      "success": false,
+      "errors": [
+        "Operation function should accept at least 2 parameters"
+      ],
+      "warnings": [
+        "Operation accepted invalid input type: list",
+        "Operation accepted invalid input type: dict",
+        "Missing metadata field: reversible",
+        "Missing metadata field: original_size",
+        "Operation marked as non-reversible"
+      ],
+      "reversibility_test": false,
+      "parameter_validation": true,
+      "edge_case_handling": true,
+      "execution_time": 0.0020241737365722656
+    },
+    "base64_encode": {
+      "success": false,
+      "errors": [
+        "Operation function should accept at least 2 parameters"
+      ],
+      "warnings": [
+        "Missing metadata field: reversible",
+        "Missing metadata field: original_size",
+        "Operation marked as non-reversible"
+      ],
+      "reversibility_test": false,
+      "parameter_validation": true,
+      "edge_case_handling": true,
+      "execution_time": 0.0001735687255859375
+    },
+    "base64_decode": {
+      "success": false,
+      "errors": [
+        "Operation function should accept at least 2 parameters"
+      ],
+      "warnings": [
+        "Operation accepted invalid input type: str",
+        "Missing metadata field: reversible",
+        "Missing metadata field: original_size",
+        "Operation marked as non-reversible"
+      ],
+      "reversibility_test": false,
+      "parameter_validation": true,
+      "edge_case_handling": true,
+      "execution_time": 0.00017023086547851562
+    }
+  }
+}
