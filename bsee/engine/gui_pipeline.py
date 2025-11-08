@@ -5,12 +5,28 @@ GUI-enabled pipeline with real-time progress callbacks.
 import logging
 import yaml
 import time
-import psutil
 import threading
 from pathlib import Path
 from dataclasses import dataclass
 from typing import Dict, List, Optional, Set, Any
 from datetime import datetime
+
+# Graceful dependency handling
+PSUTIL_AVAILABLE = True
+try:
+    import psutil
+except ImportError:
+    PSUTIL_AVAILABLE = False
+    # Create a minimal fallback for psutil functionality
+    class psutil:
+        @staticmethod
+        def Process():
+            class FallbackProcess:
+                def memory_info(self):
+                    class FallbackMemoryInfo:
+                        rss = 0  # Default to 0 if psutil not available
+                    return FallbackMemoryInfo()
+            return FallbackProcess()
 
 from bsee.engine.state import State
 from bsee.engine.history import HistoryManager, OperationEntry
