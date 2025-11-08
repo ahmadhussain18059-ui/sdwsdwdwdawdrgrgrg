@@ -105,28 +105,28 @@ class TransformOperations:
                 'description': 'Huffman encoding',
                 'required_params': [],
                 'optional_params': {},
-                'reversible': False
+                'reversible': True
             },
             'run_length_encode': {
                 'category': 'transform',
                 'description': 'Run-length encoding',
                 'required_params': [],
                 'optional_params': {},
-                'reversible': False
+                'reversible': True
             },
             'arithmetic_encode': {
                 'category': 'transform',
                 'description': 'Arithmetic encoding',
                 'required_params': [],
                 'optional_params': {},
-                'reversible': False
+                'reversible': True
             },
             'lz77_encode': {
                 'category': 'transform',
                 'description': 'LZ77 encoding',
                 'required_params': [],
                 'optional_params': {},
-                'reversible': False
+                'reversible': True
             },
             'move_to_front': {
                 'category': 'transform',
