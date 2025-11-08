@@ -341,3 +341,31 @@ class MCTSStrategy(BaseStrategy):
                     break
 
         return new_state.score > self.best_score
+
+    def _get_fallback_proposal(self, current_state: State) -> Tuple[str, Dict[str, Any]]:
+        """Fallback proposal using greedy selection."""
+        # MCTS-specific fallback: prefer operations that worked well
+        if hasattr(self, 'operation_stats') and self.operation_stats:
+            # Select operation with best success rate
+            best_op = max(self.operation_stats.items(), key=lambda x: x[1]['success_rate'])
+            return (best_op[0], {})
+
+        if self.operations_registry:
+            operations = list(self.operations_registry.operations.keys())
+            if operations:
+                return (random.choice(operations), {})
+        return ('xor_constant', {'constant': 1})
+
+    def handle_mcts_error(self, error: Exception, node=None) -> bool:
+        """Handle MCTS-specific errors."""
+        context = {
+            'tree_size': len(self.tree) if hasattr(self, 'tree') else 0,
+            'current_depth': getattr(self, 'current_depth', 0),
+            'simulation_count': getattr(self, 'simulation_count', 0)
+        }
+
+        if node:
+            context['node_visits'] = node.visits
+            context['node_value'] = node.value
+
+        return self.handle_strategy_error(error, context)
