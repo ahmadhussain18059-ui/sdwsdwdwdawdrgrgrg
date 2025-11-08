@@ -218,11 +218,21 @@ class OperationValidator:
                                  validation_result: Dict[str, Any]) -> None:
         """Test basic operation functionality."""
         try:
-            # Test with valid data
+            # Test with valid data - generate parameters if needed
             if hasattr(operation_func, '__self__'):
-                result = operation_func(test_data)
+                # This is a method, try to get operation name and generate parameters
+                op_name = operation_func.__name__
+                params = self._generate_operation_params(op_name)
+                result = operation_func(test_data, **params)
             else:
-                result = operation_func(test_data)
+                # Standalone function - try with just data first
+                try:
+                    result = operation_func(test_data)
+                except TypeError as e:
+                    # If it needs parameters, try to generate them
+                    op_name = getattr(operation_func, '__name__', 'unknown')
+                    params = self._generate_operation_params(op_name)
+                    result = operation_func(test_data, **params)
 
             # Validate result structure
             if not isinstance(result, tuple) or len(result) != 3:
