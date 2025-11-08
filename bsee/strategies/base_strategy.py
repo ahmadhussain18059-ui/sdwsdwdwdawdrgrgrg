@@ -92,5 +92,103 @@ class BaseStrategy(ABC):
             'iteration_count': self.iteration_count,
             'best_score': self.best_score,
             'no_improvement_count': self.no_improvement_count,
-            'converged': self.converged
+            'converged': self.converged,
+            'error_count': self.error_count,
+            'recovery_count': self.recovery_count,
+            'last_error': str(self.last_error) if self.last_error else None
         }
+
+    def safe_propose(self, current_state: State) -> Tuple[str, Dict[str, Any]]:
+        """
+        Safely propose an operation with error handling and recovery.
+
+        Returns:
+            Tuple of (operation_name, operation_parameters)
+            If proposal fails, returns a safe fallback operation
+        """
+        try:
+            return self.propose(current_state)
+        except Exception as e:
+            self.error_count += 1
+            self.last_error = e
+
+            # Handle the error
+            error_context = {
+                'strategy': self.name,
+                'iteration': self.iteration_count,
+                'current_score': current_state.score
+            }
+
+            error_result = self.error_handler.handle_error(e, error_context, ErrorSeverity.MEDIUM)
+
+            if error_result['recovery_successful']:
+                self.recovery_count += 1
+                # Try again after recovery
+                try:
+                    return self.propose(current_state)
+                except Exception:
+                    pass  # Fall through to fallback
+
+            # Fallback strategy
+            return self._get_fallback_proposal(current_state)
+
+    def safe_accept(self, new_state: State) -> bool:
+        """
+        Safely decide whether to accept a new state with error handling.
+
+        Returns:
+            True if the state should be accepted, False otherwise
+            Default to False on errors to be safe
+        """
+        try:
+            return self.accept(new_state)
+        except Exception as e:
+            self.error_count += 1
+            self.last_error = e
+
+            error_context = {
+                'strategy': self.name,
+                'iteration': self.iteration_count,
+                'proposed_score': new_state.score
+            }
+
+            self.error_handler.handle_error(e, error_context, ErrorSeverity.MEDIUM)
+
+            # Default to conservative behavior on errors
+            return False
+
+    def _get_fallback_proposal(self, current_state: State) -> Tuple[str, Dict[str, Any]]:
+        """
+        Get a fallback proposal when the main strategy fails.
+
+        Can be overridden by subclasses for strategy-specific fallbacks
+        """
+        # Simple fallback: apply a basic XOR operation
+        return ('xor_constant', {'constant': 1})
+
+    def handle_strategy_error(self, error: Exception, context: Optional[Dict[str, Any]] = None) -> bool:
+        """
+        Handle strategy-specific errors.
+
+        Args:
+            error: The exception that occurred
+            context: Additional context about the error
+
+        Returns:
+            True if recovery was successful, False otherwise
+        """
+        self.error_count += 1
+        self.last_error = error
+
+        error_context = context or {}
+        error_context.update({
+            'strategy': self.name,
+            'iteration': self.iteration_count
+        })
+
+        error_result = self.error_handler.handle_error(error, error_context)
+
+        if error_result['recovery_successful']:
+            self.recovery_count += 1
+
+        return error_result['recovery_successful']
