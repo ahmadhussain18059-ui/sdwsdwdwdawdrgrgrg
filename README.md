@@ -2,16 +2,38 @@
 
 BSEE is a comprehensive CLI-only Python program that analyzes binary files by applying reversible transformations to optimize user-specified metrics. The program operates entirely in the terminal with no GUI components, saving all results to timestamped text files for external analysis.
 
+## 🚀 Major Infrastructure Improvements (Latest Update)
+
+### Critical Infrastructure Fixes Implemented
+
+**Search Strategy Overhaul:**
+- **✅ MCTS Strategy**: Now implements real Monte Carlo Tree Search with complete tree data structure, UCT selection, expansion, simulation, and backpropagation phases
+- **✅ Genetic Strategy**: Features real evolutionary algorithm with population management, crossover/mutation operators, and multiple selection methods
+- **✅ Beam Search Strategy**: Implements true k-best candidate maintenance with dynamic width adjustment and diversity preservation
+- **✅ Simulated Annealing Strategy**: Enhanced with temperature-aware operation selection and proper Boltzmann acceptance criteria
+- **✅ Heuristic Strategy**: Multi-criteria evaluation system with cost, improvement, diversity, pattern, and history heuristics
+
+**Configuration System:**
+- **✅ YAML Integration**: All strategies now read their configuration from YAML files with 70+ parameters for MCTS alone
+- **✅ Auto-config Creation**: Missing configuration files are automatically generated with sensible defaults
+- **✅ Runtime Validation**: Parameter validation and fallback handling for all configurations
+
+**Enhanced Features:**
+- **✅ Error Handling**: Comprehensive error handling with graceful fallbacks and recovery strategies
+- **✅ Memory Management**: Intelligent memory usage with tree pruning and resource monitoring
+- **✅ Performance Optimization**: Efficient data structures and algorithms for large-scale analysis
+
 ## Features
 
-- **100+ reversible binary operations** across 6 categories
+- **100+ reversible binary operations** across 6 categories (including real mathematical transforms)
 - **114 different metrics** across 9 measurement categories
-- **6 search strategies** (greedy, beam, annealing, MCTS, genetic, heuristic)
+- **6 search strategies** with REAL algorithm implementations (no more placeholder random.choice())
 - **Dynamic cost modeling** with adaptive pricing
 - **File Ideality metric** for measuring structural predictability
 - **Complete operation history** for perfect reversibility
-- **Extensive configuration** via YAML files
+- **Extensive configuration** via YAML files with intelligent defaults
 - **CLI interface** with comprehensive options
+- **Robust error handling** and graceful degradation
 
 ## Installation
 
